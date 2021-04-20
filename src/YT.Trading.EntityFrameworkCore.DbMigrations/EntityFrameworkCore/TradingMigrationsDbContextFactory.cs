@@ -16,7 +16,9 @@ namespace YT.Trading.EntityFrameworkCore
             var configuration = BuildConfiguration();
 
             var builder = new DbContextOptionsBuilder<TradingMigrationsDbContext>()
-                .UseSqlServer(configuration.GetConnectionString("Default"));
+                //.UseSqlServer(configuration.GetConnectionString("Default");
+                //.UseMySql(configuration.GetConnectionString("Default"), ServerVersion.FromString("8.0.23-mysql"));
+                .UseMySql(configuration.GetConnectionString("Default"), ServerVersion.AutoDetect(configuration.GetConnectionString("Default")));
 
             return new TradingMigrationsDbContext(builder.Options);
         }
