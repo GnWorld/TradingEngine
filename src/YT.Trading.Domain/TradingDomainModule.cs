@@ -27,7 +27,8 @@ namespace YT.Trading
         typeof(AbpPermissionManagementDomainIdentityServerModule),
         typeof(AbpSettingManagementDomainModule),
         typeof(AbpTenantManagementDomainModule),
-        typeof(AbpEmailingModule)
+        typeof(AbpEmailingModule),
+        typeof(QuetoServer.QuetoServerDomainModule)
     )]
     public class TradingDomainModule : AbpModule
     {

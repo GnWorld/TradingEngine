@@ -15,7 +15,9 @@ namespace YT.Trading
         typeof(AbpIdentityApplicationContractsModule),
         typeof(AbpPermissionManagementApplicationContractsModule),
         typeof(AbpTenantManagementApplicationContractsModule),
-        typeof(AbpObjectExtendingModule)
+        typeof(AbpObjectExtendingModule),
+        typeof(QuetoServer.QuetoServerApplicationContractsModule)
+
     )]
     public class TradingApplicationContractsModule : AbpModule
     {

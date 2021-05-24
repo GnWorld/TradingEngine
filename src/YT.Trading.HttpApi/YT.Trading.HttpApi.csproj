@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\modules\QuetoServer\src\QuetoServer.HttpApi\QuetoServer.HttpApi.csproj" />
     <ProjectReference Include="..\YT.Trading.Application.Contracts\YT.Trading.Application.Contracts.csproj" />
   </ItemGroup>
 

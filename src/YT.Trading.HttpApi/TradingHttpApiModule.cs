@@ -16,7 +16,8 @@ namespace YT.Trading
         typeof(AbpIdentityHttpApiModule),
         typeof(AbpPermissionManagementHttpApiModule),
         typeof(AbpTenantManagementHttpApiModule),
-        typeof(AbpFeatureManagementHttpApiModule)
+        typeof(AbpFeatureManagementHttpApiModule),
+        typeof(QuetoServer.QuetoServerHttpApiModule)
         )]
     public class TradingHttpApiModule : AbpModule
     {
