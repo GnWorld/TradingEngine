@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using QuetoServer.Coins;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace QuetoServer.EntityFrameworkCore
 {
@@ -18,7 +20,17 @@ namespace QuetoServer.EntityFrameworkCore
             );
 
             optionsAction?.Invoke(options);
+            
+            builder.Entity<Coin>(b =>
+            {
+                //Configure table & schema name
+                b.ToTable(QuetoServerDbProperties.DbTablePrefix + "_Coins", QuetoServerDbProperties.DbSchema);
 
+                b.ConfigureByConvention();
+
+                //Indexes
+                b.HasIndex(q => q.CreationTime);
+            });
             /* Configure all entities here. Example:
 
             builder.Entity<Question>(b =>
@@ -38,6 +50,7 @@ namespace QuetoServer.EntityFrameworkCore
                 b.HasIndex(q => q.CreationTime);
             });
             */
+
         }
     }
 }

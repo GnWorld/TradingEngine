@@ -9,6 +9,7 @@ using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
+using QuetoServer.EntityFrameworkCore;
 
 namespace YT.Trading.EntityFrameworkCore
 {
@@ -31,6 +32,7 @@ namespace YT.Trading.EntityFrameworkCore
 
             /* Include modules to your migration db context */
 
+
             builder.ConfigurePermissionManagement();
             builder.ConfigureSettingManagement();
             builder.ConfigureBackgroundJobs();
@@ -40,6 +42,8 @@ namespace YT.Trading.EntityFrameworkCore
             builder.ConfigureFeatureManagement();
             builder.ConfigureTenantManagement();
 
+            // 行情服务
+            builder.ConfigureQuetoServer();
             /* Configure your own tables/entities inside the ConfigureTrading method */
 
             builder.ConfigureTrading();

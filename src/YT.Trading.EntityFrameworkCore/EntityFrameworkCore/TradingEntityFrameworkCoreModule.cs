@@ -10,7 +10,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
-
+using QuetoServer.EntityFrameworkCore;
 namespace YT.Trading.EntityFrameworkCore
 {
     [DependsOn(
@@ -24,7 +24,7 @@ namespace YT.Trading.EntityFrameworkCore
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpTenantManagementEntityFrameworkCoreModule),
         typeof(AbpFeatureManagementEntityFrameworkCoreModule),
-        typeof(QuetoServer.EntityFrameworkCore.QuetoServerEntityFrameworkCoreModule)
+        typeof(QuetoServerEntityFrameworkCoreModule)
         )]
     public class TradingEntityFrameworkCoreModule : AbpModule
     {
