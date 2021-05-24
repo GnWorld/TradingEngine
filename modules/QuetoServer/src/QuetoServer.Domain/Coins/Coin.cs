@@ -7,6 +7,18 @@ namespace QuetoServer.Coins
 {
     public class Coin : FullAuditedEntity<Guid>
     {
+        public Coin()
+        {
+        }
+
+        public Coin(string coinCode, decimal coinRate, string anchoringCoinCode, int decimalCount)
+        {
+            CoinCode = coinCode;
+            CoinRate = coinRate;
+            AnchoringCoinCode = anchoringCoinCode;
+            DecimalCount = decimalCount;
+        }
+
         /// <summary>
         /// 币种编码（唯一）
         /// </summary>
@@ -20,7 +32,7 @@ namespace QuetoServer.Coins
         /// <summary>
         /// 锚定币种Code（默认美元）
         /// </summary>
-        public decimal AnchoringCoinCode { set; get; }
+        public string AnchoringCoinCode { set; get; }
 
         /// <summary>
         /// 小数位数

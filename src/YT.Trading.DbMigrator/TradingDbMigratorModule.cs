@@ -2,6 +2,9 @@
 using Volo.Abp.Autofac;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Modularity;
+using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.Data;
+using QuetoServer.DataSeeds;
 
 namespace YT.Trading.DbMigrator
 {
@@ -15,6 +18,8 @@ namespace YT.Trading.DbMigrator
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             Configure<AbpBackgroundJobOptions>(options => options.IsJobExecutionEnabled = false);
+
+           
         }
     }
 }

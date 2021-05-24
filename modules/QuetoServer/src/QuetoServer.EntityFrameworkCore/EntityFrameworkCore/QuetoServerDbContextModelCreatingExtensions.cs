@@ -20,19 +20,30 @@ namespace QuetoServer.EntityFrameworkCore
             );
 
             optionsAction?.Invoke(options);
-            
+
             builder.Entity<Coin>(b =>
             {
                 //Configure table & schema name
                 b.ToTable(QuetoServerDbProperties.DbTablePrefix + "_Coins", QuetoServerDbProperties.DbSchema);
+                b.Property(o => o.CoinCode)
+                    .IsRequired()  //Not Null
+                    .HasColumnType("varchar(20)")
+                    .HasMaxLength(20);
+                b.Property(o => o.AnchoringCoinCode)
+                    .IsRequired()
+                    .HasColumnType("varchar(20)")
+                    .HasMaxLength(20);
+                b.Property(o => o.CoinRate)
+                    .IsRequired()
+                    .HasColumnType("decimal");
 
-                b.ConfigureByConvention();
-
-                //Indexes
+                //Indexes  索引
                 b.HasIndex(q => q.CreationTime);
+                b.HasIndex(q => q.CoinCode);
+                b.ConfigureByConvention();
             });
             /* Configure all entities here. Example:
-
+            
             builder.Entity<Question>(b =>
             {
                 //Configure table & schema name
