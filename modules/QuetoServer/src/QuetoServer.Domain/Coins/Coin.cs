@@ -39,7 +39,7 @@ namespace QuetoServer.Coins
         /// </summary>
         public int DecimalCount { get; set; }
 
-
+        public bool IsDisable { get; set; }
 
     }
 }
