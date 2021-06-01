@@ -1,12 +1,13 @@
-﻿using System;
+﻿using QuetoServer.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
-
-namespace QuetoServer.Dtos
+using Volo.Abp.Application.Dtos;
+namespace QuetoServer.Services
 {
-    public class CoinDto
+    public class CoinDto //: AuditedEntityDto<Guid>
     {
-        public Guid? Id { get; set; }
+
 
         /// <summary>
         /// 币种编码（唯一）
@@ -28,6 +29,14 @@ namespace QuetoServer.Dtos
         /// </summary>
         public int DecimalCount { get; set; }
 
+        /// <summary>
+        /// 是否禁用
+        /// </summary>
         public bool IsDisable { get; set; }
+
+        /// <summary>
+        /// 虚拟币类型,
+        /// </summary>
+        public CoinTypeEnum CoinType { get; set; }
     }
 }

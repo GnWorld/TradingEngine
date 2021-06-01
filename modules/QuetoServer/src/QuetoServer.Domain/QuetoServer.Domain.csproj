@@ -8,8 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataSeeds\QuetoServerDataSeederContributor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Volo.Abp.Ddd.Domain" Version="4.3.0" />
     <ProjectReference Include="..\QuetoServer.Domain.Shared\QuetoServer.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataSeeds\" />
   </ItemGroup>
 
 </Project>

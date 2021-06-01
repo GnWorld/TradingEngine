@@ -4,7 +4,7 @@ using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Modularity;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Data;
-using QuetoServer.DataSeeds;
+//using QuetoServer.DataSeeds;
 
 namespace YT.Trading.DbMigrator
 {

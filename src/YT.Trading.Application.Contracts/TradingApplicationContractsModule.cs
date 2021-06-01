@@ -5,7 +5,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.TenantManagement;
-
+using QuetoServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -15,8 +15,9 @@ namespace YT.Trading
         typeof(AbpIdentityApplicationContractsModule),
         typeof(AbpPermissionManagementApplicationContractsModule),
         typeof(AbpTenantManagementApplicationContractsModule),
-        typeof(AbpObjectExtendingModule),
-        typeof(QuetoServer.QuetoServerApplicationContractsModule)
+        typeof(QuetoServerApplicationContractsModule),
+        typeof(AbpObjectExtendingModule)
+
 
     )]
     public class TradingApplicationContractsModule : AbpModule

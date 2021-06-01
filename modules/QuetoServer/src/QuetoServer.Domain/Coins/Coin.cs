@@ -39,7 +39,15 @@ namespace QuetoServer.Coins
         /// </summary>
         public int DecimalCount { get; set; }
 
+        /// <summary>
+        /// 是否禁用
+        /// </summary>
         public bool IsDisable { get; set; }
+
+        /// <summary>
+        /// 虚拟币类型,
+        /// </summary>
+        public int CoinType { get; set; }
 
     }
 }

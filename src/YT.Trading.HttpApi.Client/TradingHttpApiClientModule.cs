@@ -5,7 +5,7 @@ using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.TenantManagement;
-
+using QuetoServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -15,7 +15,7 @@ namespace YT.Trading
         typeof(AbpPermissionManagementHttpApiClientModule),
         typeof(AbpTenantManagementHttpApiClientModule),
         typeof(AbpFeatureManagementHttpApiClientModule),
-        typeof(QuetoServer.QuetoServerHttpApiClientModule)
+        typeof(QuetoServerHttpApiClientModule)
     )]
     public class TradingHttpApiClientModule : AbpModule
     {
@@ -27,6 +27,7 @@ namespace YT.Trading
                 typeof(TradingApplicationContractsModule).Assembly,
                 RemoteServiceName
             );
+            context.Services.AddHttpClientProxies(typeof(QuetoServerApplicationContractsModule).Assembly,RemoteServiceName);
         }
     }
 }
