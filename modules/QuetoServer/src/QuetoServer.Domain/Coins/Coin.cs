@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuetoServer.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Domain.Entities;
@@ -7,17 +8,7 @@ namespace QuetoServer.Coins
 {
     public class Coin : FullAuditedEntity<Guid>
     {
-        public Coin()
-        {
-        }
 
-        public Coin(string coinCode, decimal coinRate, string anchoringCoinCode, int decimalCount)
-        {
-            CoinCode = coinCode;
-            CoinRate = coinRate;
-            AnchoringCoinCode = anchoringCoinCode;
-            DecimalCount = decimalCount;
-        }
 
         /// <summary>
         /// 币种编码（唯一）
@@ -47,7 +38,7 @@ namespace QuetoServer.Coins
         /// <summary>
         /// 虚拟币类型,
         /// </summary>
-        public int CoinType { get; set; }
+        public CoinTypeEnum CoinType { get; set; }
 
     }
 }

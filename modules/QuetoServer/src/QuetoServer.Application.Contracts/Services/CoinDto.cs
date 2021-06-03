@@ -5,10 +5,8 @@ using System.Text;
 using Volo.Abp.Application.Dtos;
 namespace QuetoServer.Services
 {
-    public class CoinDto //: AuditedEntityDto<Guid>
+    public class CoinDto : FullAuditedEntityDto<Guid>
     {
-
-
         /// <summary>
         /// 币种编码（唯一）
         /// </summary>

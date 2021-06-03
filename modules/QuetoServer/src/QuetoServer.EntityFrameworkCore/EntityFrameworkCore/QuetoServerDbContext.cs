@@ -12,7 +12,7 @@ namespace QuetoServer.EntityFrameworkCore
         /* Add DbSet for each Aggregate Root here. Example:
          * public DbSet<Question> Questions { get; set; }
          */
-        public DbSet<Coins.Coin> Coins { get; set; }
+        public DbSet<Coin> Coins { get; set; }
         public QuetoServerDbContext(DbContextOptions<QuetoServerDbContext> options)
             : base(options)
         {

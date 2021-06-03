@@ -15,8 +15,17 @@ namespace QuetoServer.Services
 
         public async Task AddCoinAsync(CoinDto coinDto)
         {
-            var entity = ObjectMapper.Map<CoinDto, Coin>(coinDto);
-            await _coinRep.InsertAsync(entity);
+            try
+            {
+                var entity = ObjectMapper.Map<CoinDto, Coin>(coinDto);
+                var a = await _coinRep.InsertAsync(entity, true);  
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
 

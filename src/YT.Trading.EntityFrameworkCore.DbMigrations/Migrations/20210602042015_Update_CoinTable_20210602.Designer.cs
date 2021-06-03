@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using YT.Trading.EntityFrameworkCore;
@@ -9,9 +10,10 @@ using YT.Trading.EntityFrameworkCore;
 namespace YT.Trading.Migrations
 {
     [DbContext(typeof(TradingMigrationsDbContext))]
-    partial class TradingMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210602042015_Update_CoinTable_20210602")]
+    partial class Update_CoinTable_20210602
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

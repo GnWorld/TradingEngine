@@ -39,7 +39,7 @@ namespace QuetoServer.EntityFrameworkCore
 
                 //Indexes  索引
                 b.HasIndex(q => q.CreationTime);
-                b.HasIndex(q => q.CoinCode);
+                b.HasIndex(q => q.CoinCode).IsUnique();
                 b.ConfigureByConvention();
             });
             /* Configure all entities here. Example:
