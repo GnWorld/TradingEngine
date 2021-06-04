@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using QuetoServer.Coins;
 using QuetoServer.Services;
+using System;
+using Volo.Abp.AutoMapper;
 
 namespace QuetoServer
 {
@@ -12,7 +14,21 @@ namespace QuetoServer
             /* You can configure your AutoMapper mapping configuration here.
              * Alternatively, you can split your mapping configurations
              * into multiple profile classes for a better organization. */
-            CreateMap<CoinDto, Coin>();
+            CreateMap<CreateCoinInput, Coin>()
+                .Ignore(o => o.CreateTime)
+                .Ignore(o => o.UpdateTime)
+                .Ignore(o => o.Creator)
+                .Ignore(o => o.Id);
+
+            CreateMap<Coin, CoinOutput>()
+                .ForMember(o => o.UpdateTime, option => option.MapFrom(b => DateTime.FromBinary(b.UpdateTime)))
+                .ForMember(o => o.CreateTime, option => option.MapFrom(b => DateTime.FromBinary(b.CreateTime)));
+
+            CreateMap<UpdateCoinInput, Coin>()
+                .Ignore(o => o.CreateTime)
+                .Ignore(o => o.UpdateTime)
+                .Ignore(o => o.Creator);
+
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace YT.Trading.Migrations
 {
-    public partial class Init_AllTable : Migration
+    public partial class Init_QuetoServer_Coins : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -455,6 +455,27 @@ namespace YT.Trading.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_IdentityServerPersistedGrants", x => x.Key);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "QuetoServer_Coins",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
+                    CoinCode = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
+                    CoinEnName = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    CoinRate = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    AnchoringCoinCode = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
+                    DecimalCount = table.Column<int>(type: "int", nullable: false),
+                    IsDisable = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    CoinType = table.Column<int>(type: "int", nullable: false),
+                    CreateTime = table.Column<long>(type: "bigint", nullable: false),
+                    Creator = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    UpdateTime = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QuetoServer_Coins", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -1215,6 +1236,17 @@ namespace YT.Trading.Migrations
                 name: "IX_IdentityServerPersistedGrants_SubjectId_SessionId_Type",
                 table: "IdentityServerPersistedGrants",
                 columns: new[] { "SubjectId", "SessionId", "Type" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_QuetoServer_Coins_CoinCode",
+                table: "QuetoServer_Coins",
+                column: "CoinCode",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_QuetoServer_Coins_CreateTime",
+                table: "QuetoServer_Coins",
+                column: "CreateTime");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -1326,6 +1358,9 @@ namespace YT.Trading.Migrations
 
             migrationBuilder.DropTable(
                 name: "IdentityServerPersistedGrants");
+
+            migrationBuilder.DropTable(
+                name: "QuetoServer_Coins");
 
             migrationBuilder.DropTable(
                 name: "AbpEntityChanges");

@@ -2,34 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Volo.Abp.Domain.Entities;
-using Volo.Abp.Domain.Entities.Auditing;
-namespace QuetoServer.Coins
+using Volo.Abp.Application.Dtos;
+
+namespace QuetoServer.Services
 {
-    public class Coin : Entity<Guid>
+    public class CoinOutput : EntityDto<Guid>
     {
-
-        public Coin()
-        {
-            CreateTime = DateTime.UtcNow.Ticks;
-            UpdateTime = DateTime.UtcNow.Ticks;
-        }
-
-        public Coin(string coinCode, string coinEnName, decimal coinRate, string anchoringCoinCode, int decimalCount, CoinTypeEnum coinType, string creator, long? createTime, long? updateTime, bool isDisable = false)
-        {
-            CoinCode = coinCode;
-            CoinEnName = coinEnName ?? coinCode;
-            CoinRate = coinRate;
-            AnchoringCoinCode = anchoringCoinCode;
-            DecimalCount = decimalCount;
-            IsDisable = isDisable;
-            CoinType = coinType;
-            CreateTime = createTime ?? DateTime.UtcNow.Ticks;
-            Creator = creator;
-            UpdateTime = updateTime ?? DateTime.UtcNow.Ticks;
-        }
-
-
         /// <summary>
         /// 币种编码（唯一）
         /// </summary>
@@ -69,7 +47,7 @@ namespace QuetoServer.Coins
         /// <summary>
         /// 创建时间
         /// </summary>
-        public long CreateTime { get; set; }
+        public DateTime CreateTime { get; set; }
 
         /// <summary>
         /// 创建人
@@ -79,8 +57,7 @@ namespace QuetoServer.Coins
         /// <summary>
         /// 更新时间
         /// </summary>
-        public long UpdateTime { get; set; }
-
+        public DateTime UpdateTime { get; set; }
 
     }
 }

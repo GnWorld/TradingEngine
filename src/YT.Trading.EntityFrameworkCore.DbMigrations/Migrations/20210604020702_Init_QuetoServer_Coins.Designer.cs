@@ -10,8 +10,8 @@ using YT.Trading.EntityFrameworkCore;
 namespace YT.Trading.Migrations
 {
     [DbContext(typeof(TradingMigrationsDbContext))]
-    [Migration("20210524082617_Add_CoinsTable")]
-    partial class Add_CoinsTable
+    [Migration("20210604020702_Init_QuetoServer_Coins")]
+    partial class Init_QuetoServer_Coins
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,51 +27,46 @@ namespace YT.Trading.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<decimal>("AnchoringCoinCode")
-                        .HasColumnType("decimal(65,30)");
+                    b.Property<string>("AnchoringCoinCode")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("CoinCode")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("CoinEnName")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<decimal>("CoinRate")
                         .HasColumnType("decimal(65,30)");
 
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("CreationTime");
+                    b.Property<int>("CoinType")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("CreatorId")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("CreatorId");
+                    b.Property<long>("CreateTime")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Creator")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("DecimalCount")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("DeleterId")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("DeleterId");
+                    b.Property<bool>("IsDisable")
+                        .HasColumnType("tinyint(1)");
 
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("DeletionTime");
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
-                        .HasDefaultValue(false)
-                        .HasColumnName("IsDeleted");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("LastModificationTime");
-
-                    b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("LastModifierId");
+                    b.Property<long>("UpdateTime")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreationTime");
+                    b.HasIndex("CoinCode")
+                        .IsUnique();
+
+                    b.HasIndex("CreateTime");
 
                     b.ToTable("QuetoServer_Coins");
                 });

@@ -3,14 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
+
 namespace QuetoServer.Services
 {
-    public class CoinDto : FullAuditedEntityDto<Guid>
+    public class UpdateCoinInput : EntityDto<Guid>
     {
         /// <summary>
         /// 币种编码（唯一）
         /// </summary>
         public string CoinCode { get; set; }
+
+        /// <summary>
+        /// 币种英文名称(唯一)
+        /// </summary>
+
+        public string CoinEnName { get; set; }
 
         /// <summary>
         /// 币种汇率

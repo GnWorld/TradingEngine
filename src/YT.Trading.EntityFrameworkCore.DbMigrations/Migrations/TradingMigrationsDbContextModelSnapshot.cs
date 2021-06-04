@@ -35,54 +35,36 @@ namespace YT.Trading.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("varchar(20)");
 
+                    b.Property<string>("CoinEnName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<decimal>("CoinRate")
                         .HasColumnType("decimal(65,30)");
 
                     b.Property<int>("CoinType")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("CreationTime");
+                    b.Property<long>("CreateTime")
+                        .HasColumnType("bigint");
 
-                    b.Property<Guid?>("CreatorId")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("CreatorId");
+                    b.Property<string>("Creator")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("DecimalCount")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("DeleterId")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("DeleterId");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("DeletionTime");
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
-                        .HasDefaultValue(false)
-                        .HasColumnName("IsDeleted");
-
                     b.Property<bool>("IsDisable")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("LastModificationTime");
-
-                    b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("LastModifierId");
+                    b.Property<long>("UpdateTime")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CoinCode")
                         .IsUnique();
 
-                    b.HasIndex("CreationTime");
+                    b.HasIndex("CreateTime");
 
                     b.ToTable("QuetoServer_Coins");
                 });

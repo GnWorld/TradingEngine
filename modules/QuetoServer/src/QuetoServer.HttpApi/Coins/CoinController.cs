@@ -19,10 +19,24 @@ namespace QuetoServer.Coins
         }
 
         [HttpPost]
-        [Route("addcoin")]
-        public async Task AddCoinAsync(CoinDto coinDto)
+        [Route("AddCoin")]
+        public async Task<CoinOutput> AddCoinAsync(CreateCoinInput coinDto)
         {
-            await _coinAppService.AddCoinAsync(coinDto);
+            return await _coinAppService.AddCoinAsync(coinDto);
+        }
+        [HttpPost]
+        [Route("UpdateCoin")]
+
+        public async Task<CoinOutput> UpdateCoinAsync(UpdateCoinInput input)
+        {
+            return await _coinAppService.UpdateCoinAsync(input);
+        }
+
+        [HttpPost]
+        [Route("UpdateCoinRate")]
+        public Task UpdateCoinAsync(string coinCode, decimal rate)
+        {
+            return _coinAppService.UpdateCoinAsync(coinCode, rate);
         }
     }
 }

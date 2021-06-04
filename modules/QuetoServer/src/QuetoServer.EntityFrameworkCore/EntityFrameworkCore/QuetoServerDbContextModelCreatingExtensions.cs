@@ -38,7 +38,7 @@ namespace QuetoServer.EntityFrameworkCore
                     .HasColumnType("decimal");
 
                 //Indexes  索引
-                b.HasIndex(q => q.CreationTime);
+                b.HasIndex(q => q.CreateTime);
                 b.HasIndex(q => q.CoinCode).IsUnique();
                 b.ConfigureByConvention();
             });
