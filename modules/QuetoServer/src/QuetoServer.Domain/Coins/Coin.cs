@@ -1,9 +1,6 @@
 ﻿using QuetoServer.Enums;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Volo.Abp.Domain.Entities;
-using Volo.Abp.Domain.Entities.Auditing;
 namespace QuetoServer.Coins
 {
     public class Coin : Entity<Guid>
@@ -28,6 +25,7 @@ namespace QuetoServer.Coins
             Creator = creator;
             UpdateTime = updateTime ?? DateTime.UtcNow.Ticks;
         }
+
 
 
         /// <summary>

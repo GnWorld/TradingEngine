@@ -8,8 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Coins\CoinController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="4.3.0" />
     <ProjectReference Include="..\QuetoServer.Application.Contracts\QuetoServer.Application.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Coins\" />
   </ItemGroup>
 
 </Project>

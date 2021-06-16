@@ -7,7 +7,6 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.TenantManagement;
 // 自定义的模块
 using QuetoServer;
-
 namespace YT.Trading
 {
     [DependsOn(
@@ -28,6 +27,7 @@ namespace YT.Trading
             {
                 options.AddMaps<TradingApplicationModule>();
             });
+
         }
     }
 }

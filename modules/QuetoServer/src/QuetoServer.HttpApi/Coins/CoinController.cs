@@ -8,7 +8,7 @@ using Volo.Abp;
 namespace QuetoServer.Coins
 {
     [RemoteService]
-    [Route("api/QuetoServer/coin")]
+    [Route("api/quetoserver/coin")]
     public class CoinController : QuetoServerController, ICoinAppService
     {
         private readonly ICoinAppService _coinAppService;
@@ -19,13 +19,13 @@ namespace QuetoServer.Coins
         }
 
         [HttpPost]
-        [Route("AddCoin")]
+        [Route("addcoin")]
         public async Task<CoinOutput> AddCoinAsync(CreateCoinInput coinDto)
         {
             return await _coinAppService.AddCoinAsync(coinDto);
         }
         [HttpPost]
-        [Route("UpdateCoin")]
+        [Route("updatecoin")]
 
         public async Task<CoinOutput> UpdateCoinAsync(UpdateCoinInput input)
         {
@@ -33,10 +33,10 @@ namespace QuetoServer.Coins
         }
 
         [HttpPost]
-        [Route("UpdateCoinRate")]
-        public Task UpdateCoinAsync(string coinCode, decimal rate)
+        [Route("updatecoinrate")]
+        public async Task UpdateCoinAsync(string coinCode, decimal rate)
         {
-            return _coinAppService.UpdateCoinAsync(coinCode, rate);
+            await _coinAppService.UpdateCoinAsync(coinCode, rate);
         }
     }
 }

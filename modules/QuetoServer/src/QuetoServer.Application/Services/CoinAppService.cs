@@ -10,7 +10,7 @@ namespace QuetoServer.Services
     {
         private readonly IRepository<Coin> _coinRep;
         private readonly IUnitOfWork _uow;
-        
+
         public CoinAppService(IRepository<Coin> repository, IUnitOfWork uow)
         {
             _coinRep = repository;
@@ -22,20 +22,13 @@ namespace QuetoServer.Services
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<CoinOutput> AddCoinAsync(CreateCoinInput input)
+        public async Task<CoinOutput> AddAsync(CreateCoinInput input)
         {
-            try
-            {
-                var entity = ObjectMapper.Map<CreateCoinInput, Coin>(input);
-                var coin = await _coinRep.InsertAsync(entity, true);
-                var output = ObjectMapper.Map<Coin, CoinOutput>(coin);
-                return output;
-            }
-            catch (Exception ex)
-            {
 
-                throw ex;
-            }
+            var entity = ObjectMapper.Map<CreateCoinInput, Coin>(input);
+            var coin = await _coinRep.InsertAsync(entity, true);
+            var output = ObjectMapper.Map<Coin, CoinOutput>(coin);
+            return output;
 
         }
 
@@ -54,7 +47,7 @@ namespace QuetoServer.Services
 
 
 
-        public async Task UpdateCoinAsync(string coinCode, decimal rate)
+        public async Task UpdateCoinRateAsync(string coinCode, decimal rate)
         {
             var coin = await _coinRep.FirstOrDefaultAsync(o => o.CoinCode == coinCode);
             coin.CoinRate = rate;

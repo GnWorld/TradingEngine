@@ -6,12 +6,12 @@ namespace QuetoServer.Services
     public interface ICoinAppService : IApplicationService
     {
 
-        Task<CoinOutput> AddCoinAsync(CreateCoinInput input);
+        Task<CoinOutput> AddAsync(CreateCoinInput input);
 
         Task<CoinOutput> UpdateCoinAsync(UpdateCoinInput input);
 
 
-        Task UpdateCoinAsync(string coinCode, decimal rate);
+        Task UpdateCoinRateAsync(string coinCode, decimal rate);
         //Task UpdateCoinAsync();
     }
 }

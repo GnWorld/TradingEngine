@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\YT.Core\YT.Core.csproj" />
     <ProjectReference Include="..\YT.Trading.Application\YT.Trading.Application.csproj" />
     <ProjectReference Include="..\YT.Trading.EntityFrameworkCore.DbMigrations\YT.Trading.EntityFrameworkCore.DbMigrations.csproj" />
     <ProjectReference Include="..\YT.Trading.HttpApi\YT.Trading.HttpApi.csproj" />

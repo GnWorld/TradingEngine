@@ -1,13 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>QuetoServer</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="4.3.0" />
     <PackageReference Include="Volo.Abp.AutoMapper" Version="4.3.0" />
     <PackageReference Include="Volo.Abp.Ddd.Application" Version="4.3.0" />
     <ProjectReference Include="..\QuetoServer.Application.Contracts\QuetoServer.Application.Contracts.csproj" />
