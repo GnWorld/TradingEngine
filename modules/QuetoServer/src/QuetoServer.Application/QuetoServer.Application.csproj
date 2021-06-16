@@ -16,4 +16,8 @@
     <ProjectReference Include="..\QuetoServer.Domain\QuetoServer.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Queto\" />
+  </ItemGroup>
+
 </Project>

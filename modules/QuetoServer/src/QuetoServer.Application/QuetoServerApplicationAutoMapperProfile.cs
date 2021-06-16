@@ -2,6 +2,7 @@
 using QuetoServer.Coins;
 using QuetoServer.Services;
 using System;
+using System.Collections.Generic;
 using Volo.Abp.AutoMapper;
 
 namespace QuetoServer

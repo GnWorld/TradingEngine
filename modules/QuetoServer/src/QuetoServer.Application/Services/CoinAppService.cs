@@ -1,5 +1,7 @@
 ﻿using QuetoServer.Coins;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Uow;
@@ -30,6 +32,14 @@ namespace QuetoServer.Services
             var output = ObjectMapper.Map<Coin, CoinOutput>(coin);
             return output;
 
+        }
+
+        public async Task<List<CoinOutput>> GetCoinsAsync(string CoinCode)
+        {
+            
+            var coins = _coinRep.WhereIf(!string.IsNullOrEmpty(CoinCode), o => o.CoinCode == CoinCode).ToList();
+            var outputs = ObjectMapper.Map<List<Coin>, List<CoinOutput>>(coins);
+            return await Task.FromResult(outputs);
         }
 
         /// <summary>

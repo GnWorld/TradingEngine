@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 
 namespace QuetoServer.Services
@@ -12,6 +13,8 @@ namespace QuetoServer.Services
 
 
         Task UpdateCoinRateAsync(string coinCode, decimal rate);
+
+        Task<List<CoinOutput>> GetCoinsAsync(string CoinCode);
         //Task UpdateCoinAsync();
     }
 }
