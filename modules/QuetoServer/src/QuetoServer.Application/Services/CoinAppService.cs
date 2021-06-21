@@ -34,9 +34,14 @@ namespace QuetoServer.Services
 
         }
 
+        /// <summary>
+        /// 获取币种列表
+        /// </summary>
+        /// <param name="CoinCode"></param>
+        /// <returns></returns>
         public async Task<List<CoinOutput>> GetCoinsAsync(string CoinCode)
         {
-            
+
             var coins = _coinRep.WhereIf(!string.IsNullOrEmpty(CoinCode), o => o.CoinCode == CoinCode).ToList();
             var outputs = ObjectMapper.Map<List<Coin>, List<CoinOutput>>(coins);
             return await Task.FromResult(outputs);
@@ -56,7 +61,12 @@ namespace QuetoServer.Services
         }
 
 
-
+        /// <summary>
+        /// 更新币种汇率
+        /// </summary>
+        /// <param name="coinCode"></param>
+        /// <param name="rate"></param>
+        /// <returns></returns>
         public async Task UpdateCoinRateAsync(string coinCode, decimal rate)
         {
             var coin = await _coinRep.FirstOrDefaultAsync(o => o.CoinCode == coinCode);
