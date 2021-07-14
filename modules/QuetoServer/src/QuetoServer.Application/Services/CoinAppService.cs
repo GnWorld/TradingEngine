@@ -11,6 +11,7 @@ namespace QuetoServer.Services
     public class CoinAppService : QuetoServerAppService, ICurrencyAppService
     {
         private readonly IRepository<Cur> _coinRep;
+
         private readonly IUnitOfWork _uow;
 
         public CoinAppService(IRepository<Cur> repository, IUnitOfWork uow)
