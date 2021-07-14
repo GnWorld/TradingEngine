@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using QuetoServer.Curs;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 
-using QuetoServer.Coins;
 namespace QuetoServer.EntityFrameworkCore
 {
     [ConnectionStringName(QuetoServerDbProperties.ConnectionStringName)]
@@ -11,6 +11,6 @@ namespace QuetoServer.EntityFrameworkCore
         /* Add DbSet for each Aggregate Root here. Example:
          * DbSet<Question> Questions { get; }
          */
-        DbSet<Coin> Coins { get; set; }
+        DbSet<Cur> Curs { get; set; }
     }
 }

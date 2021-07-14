@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using QuetoServer.Coins;
+using QuetoServer.Curs;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
@@ -20,7 +20,7 @@ namespace QuetoServer.EntityFrameworkCore
                 /* Add custom repositories here. Example:
                  * options.AddRepository<Question, EfCoreQuestionRepository>();
                  */
-                options.AddRepository<Coin, EfCoreRepository<QuetoServerDbContext, Coin>>();
+                options.AddRepository<Cur, EfCoreRepository<QuetoServerDbContext, Cur>>();
             });
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
-using QuetoServer.Coins;
+using QuetoServer.Curs;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace QuetoServer.EntityFrameworkCore
@@ -21,25 +21,25 @@ namespace QuetoServer.EntityFrameworkCore
 
             optionsAction?.Invoke(options);
 
-            builder.Entity<Coin>(b =>
+            builder.Entity<Cur>(b =>
             {
                 //Configure table & schema name
                 b.ToTable(QuetoServerDbProperties.DbTablePrefix + "_Coins", QuetoServerDbProperties.DbSchema);
-                b.Property(o => o.CoinCode)
+                b.Property(o => o.CurCode)
                     .IsRequired()  //Not Null
                     .HasColumnType("varchar(20)")
                     .HasMaxLength(20);
-                b.Property(o => o.AnchoringCoinCode)
+                b.Property(o => o.AnchoringCurCode)
                     .IsRequired()
                     .HasColumnType("varchar(20)")
                     .HasMaxLength(20);
-                b.Property(o => o.CoinRate)
+                b.Property(o => o.AnchorRate)
                     .IsRequired()
                     .HasColumnType("decimal");
 
                 //Indexes  索引
-                b.HasIndex(q => q.CreateTime);
-                b.HasIndex(q => q.CoinCode).IsUnique();
+                b.HasIndex(q => q.CreationTime);
+                b.HasIndex(q => q.CurCode).IsUnique();
                 b.ConfigureByConvention();
             });
             /* Configure all entities here. Example:

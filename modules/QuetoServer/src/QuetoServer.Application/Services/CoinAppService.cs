@@ -1,4 +1,4 @@
-﻿using QuetoServer.Coins;
+﻿using QuetoServer.Curs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +8,12 @@ using Volo.Abp.Uow;
 
 namespace QuetoServer.Services
 {
-    public class CoinAppService : QuetoServerAppService, ICoinAppService
+    public class CoinAppService : QuetoServerAppService, ICurrencyAppService
     {
-        private readonly IRepository<Coin> _coinRep;
+        private readonly IRepository<Cur> _coinRep;
         private readonly IUnitOfWork _uow;
 
-        public CoinAppService(IRepository<Coin> repository, IUnitOfWork uow)
+        public CoinAppService(IRepository<Cur> repository, IUnitOfWork uow)
         {
             _coinRep = repository;
             _uow = uow;
@@ -24,26 +24,23 @@ namespace QuetoServer.Services
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<CoinOutput> AddAsync(CreateCoinInput input)
+        public async Task<CurOutput> AddAsync(CreateCurInput input)
         {
-
-            var entity = ObjectMapper.Map<CreateCoinInput, Coin>(input);
+            var entity = ObjectMapper.Map<CreateCurInput, Cur>(input);
             var coin = await _coinRep.InsertAsync(entity, true);
-            var output = ObjectMapper.Map<Coin, CoinOutput>(coin);
+            var output = ObjectMapper.Map<Cur, CurOutput>(coin);
             return output;
-
         }
 
         /// <summary>
         /// 获取币种列表
         /// </summary>
-        /// <param name="CoinCode"></param>
+        /// <param name="curCode"></param>
         /// <returns></returns>
-        public async Task<List<CoinOutput>> GetCoinsAsync(string CoinCode)
+        public async Task<List<CurOutput>> GetCursAsync(string curCode)
         {
-
-            var coins = _coinRep.WhereIf(!string.IsNullOrEmpty(CoinCode), o => o.CoinCode == CoinCode).ToList();
-            var outputs = ObjectMapper.Map<List<Coin>, List<CoinOutput>>(coins);
+            var coins = _coinRep.WhereIf(!string.IsNullOrEmpty(curCode), o => o.CurCode == curCode).ToList();
+            var outputs = ObjectMapper.Map<List<Cur>, List<CurOutput>>(coins);
             return await Task.FromResult(outputs);
         }
 
@@ -52,11 +49,11 @@ namespace QuetoServer.Services
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<CoinOutput> UpdateCoinAsync(UpdateCoinInput input)
+        public async Task<CurOutput> UpdateCurAsync(UpdateCurInput input)
         {
-            var entity = ObjectMapper.Map<UpdateCoinInput, Coin>(input);
+            var entity = ObjectMapper.Map<UpdateCurInput, Cur>(input);
             await _coinRep.UpdateAsync(entity);
-            var output = ObjectMapper.Map<Coin, CoinOutput>(entity);
+            var output = ObjectMapper.Map<Cur, CurOutput>(entity);
             return output;
         }
 
@@ -67,10 +64,10 @@ namespace QuetoServer.Services
         /// <param name="coinCode"></param>
         /// <param name="rate"></param>
         /// <returns></returns>
-        public async Task UpdateCoinRateAsync(string coinCode, decimal rate)
+        public async Task UpdateCurRateAsync(string coinCode, decimal rate)
         {
-            var coin = await _coinRep.FirstOrDefaultAsync(o => o.CoinCode == coinCode);
-            coin.CoinRate = rate;
+            var coin = await _coinRep.FirstOrDefaultAsync(o => o.CurCode == coinCode);
+            coin.AnchorRate = rate;
             await _coinRep.UpdateAsync(coin);
         }
     }
