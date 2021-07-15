@@ -12,9 +12,8 @@ namespace QuetoServer.Services
         Task<CurOutput> UpdateCurAsync(UpdateCurInput input);
 
 
-        Task UpdateCurRateAsync(string coinCode, decimal rate);
+        Task UpdateCurRateAsync(string curCode, decimal rate);
 
-        Task<List<CurOutput>> GetCursAsync(string CoinCode);
-        //Task UpdateCoinAsync();
+        Task<List<CurOutput>> GetCursAsync(string curCode);
     }
 }

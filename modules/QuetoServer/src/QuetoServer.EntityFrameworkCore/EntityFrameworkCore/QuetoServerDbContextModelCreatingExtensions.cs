@@ -24,7 +24,7 @@ namespace QuetoServer.EntityFrameworkCore
             builder.Entity<Cur>(b =>
             {
                 //Configure table & schema name
-                b.ToTable(QuetoServerDbProperties.DbTablePrefix + "_Coins", QuetoServerDbProperties.DbSchema);
+                b.ToTable(QuetoServerDbProperties.DbTablePrefix + "_Currencies", QuetoServerDbProperties.DbSchema);
                 b.Property(o => o.CurCode)
                     .IsRequired()  //Not Null
                     .HasColumnType("varchar(20)")

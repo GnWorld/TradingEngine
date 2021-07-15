@@ -9,7 +9,7 @@ namespace QuetoServer.Coins
 {
     [RemoteService]
     [Route("api/quetoserver/coin")]
-    public class CoinController : QuetoServerController, ICoinAppService
+    public class CoinController : QuetoServerController, ICurAppService
     {
         private readonly ICoinAppService _coinAppService;
 

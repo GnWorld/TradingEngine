@@ -8,15 +8,15 @@ using Volo.Abp.Uow;
 
 namespace QuetoServer.Services
 {
-    public class CoinAppService : QuetoServerAppService, ICurrencyAppService
+    public class CurrencyAppService : QuetoServerAppService, ICurrencyAppService
     {
-        private readonly IRepository<Cur> _coinRep;
+        private readonly IRepository<Cur> _curRep;
 
         private readonly IUnitOfWork _uow;
 
-        public CoinAppService(IRepository<Cur> repository, IUnitOfWork uow)
+        public CurrencyAppService(IRepository<Cur> repository, IUnitOfWork uow)
         {
-            _coinRep = repository;
+            _curRep = repository;
             _uow = uow;
         }
 
@@ -28,8 +28,8 @@ namespace QuetoServer.Services
         public async Task<CurOutput> AddAsync(CreateCurInput input)
         {
             var entity = ObjectMapper.Map<CreateCurInput, Cur>(input);
-            var coin = await _coinRep.InsertAsync(entity, true);
-            var output = ObjectMapper.Map<Cur, CurOutput>(coin);
+            var cur = await _curRep.InsertAsync(entity, true);
+            var output = ObjectMapper.Map<Cur, CurOutput>(cur);
             return output;
         }
 
@@ -40,8 +40,11 @@ namespace QuetoServer.Services
         /// <returns></returns>
         public async Task<List<CurOutput>> GetCursAsync(string curCode)
         {
-            var coins = _coinRep.WhereIf(!string.IsNullOrEmpty(curCode), o => o.CurCode == curCode).ToList();
-            var outputs = ObjectMapper.Map<List<Cur>, List<CurOutput>>(coins);
+            var currencies = 
+                _curRep
+                    .WhereIf(!string.IsNullOrEmpty(curCode), o => o.CurCode == curCode)
+                    .ToList();
+            var outputs = ObjectMapper.Map<List<Cur>, List<CurOutput>>(currencies);
             return await Task.FromResult(outputs);
         }
 
@@ -52,9 +55,9 @@ namespace QuetoServer.Services
         /// <returns></returns>
         public async Task<CurOutput> UpdateCurAsync(UpdateCurInput input)
         {
-            var entity = ObjectMapper.Map<UpdateCurInput, Cur>(input);
-            await _coinRep.UpdateAsync(entity);
-            var output = ObjectMapper.Map<Cur, CurOutput>(entity);
+            var cur = ObjectMapper.Map<UpdateCurInput, Cur>(input);
+            await _curRep.UpdateAsync(cur);
+            var output = ObjectMapper.Map<Cur, CurOutput>(cur);
             return output;
         }
 
@@ -62,14 +65,14 @@ namespace QuetoServer.Services
         /// <summary>
         /// 更新币种汇率
         /// </summary>
-        /// <param name="coinCode"></param>
+        /// <param name="curCode"></param>
         /// <param name="rate"></param>
         /// <returns></returns>
-        public async Task UpdateCurRateAsync(string coinCode, decimal rate)
+        public async Task UpdateCurRateAsync(string curCode, decimal rate)
         {
-            var coin = await _coinRep.FirstOrDefaultAsync(o => o.CurCode == coinCode);
-            coin.AnchorRate = rate;
-            await _coinRep.UpdateAsync(coin);
+            var cur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == curCode);
+            cur.AnchorRate = rate;
+            await _curRep.UpdateAsync(cur);
         }
     }
 }
