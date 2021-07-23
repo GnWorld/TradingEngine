@@ -12,8 +12,9 @@ namespace QuetoServer.Services
         Task<CurOutput> UpdateCurAsync(UpdateCurInput input);
 
 
-        Task UpdateCurRateAsync(string curCode, decimal rate);
+        Task UpdateCurRateAsync(UpdateCurRateInput input);
 
         Task<List<CurOutput>> GetCursAsync(string curCode);
+        Task<CurOutput> GetCurAsync(string curCode);
     }
 }

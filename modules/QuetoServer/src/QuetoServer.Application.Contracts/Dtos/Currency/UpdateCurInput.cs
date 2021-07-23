@@ -6,9 +6,8 @@ using Volo.Abp.Application.Dtos;
 
 namespace QuetoServer.Services
 {
-    public class CurOutput : EntityDto
+    public class UpdateCurInput : EntityDto<int>
     {
-
         /// <summary>
         /// 币种编码（唯一）
         /// </summary>
@@ -44,7 +43,6 @@ namespace QuetoServer.Services
         /// 是否禁用
         /// </summary>
         public bool IsDisable { get; set; }
-
 
         public bool IsShow { get; set; }
 

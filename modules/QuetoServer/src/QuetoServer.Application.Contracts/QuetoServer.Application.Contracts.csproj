@@ -7,6 +7,10 @@
     <RootNamespace>QuetoServer</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\personal\Beaou\TradingEngine\src\YT.Trading.HttpApi.Host\src\QuetoServer.Application.Contracts\QuetoServer.Application.Contracts.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="4.3.0" />
     <PackageReference Include="Volo.Abp.Authorization" Version="4.3.0" />

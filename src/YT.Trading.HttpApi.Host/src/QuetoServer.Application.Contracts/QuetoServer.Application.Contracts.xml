@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuetoServer.Application.Contracts</name>
+    </assembly>
+    <members>
+        <member name="P:QuetoServer.Services.CreateCurInput.CurCode">
+            <summary>
+            币种编码（唯一）
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CreateCurInput.CurEnName">
+            <summary>
+            币种英文名称(唯一)
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CreateCurInput.AnchorRate">
+            <summary>
+            币种汇率
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CreateCurInput.AnchoringCurCode">
+            <summary>
+            锚定币种Code（默认美元）
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CreateCurInput.AnchorRateFlush">
+            <summary>
+            汇率刷新模式
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CreateCurInput.DecimalCount">
+            <summary>
+            小数位数
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CreateCurInput.IsDisable">
+            <summary>
+            是否禁用
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CreateCurInput.IsShow">
+            <summary>
+            是否显示
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CreateCurInput.CurType">
+            <summary>
+            虚拟币类型,
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CurOutput.CurCode">
+            <summary>
+            币种编码（唯一）
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CurOutput.CurEnName">
+            <summary>
+            币种英文名称(唯一)
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CurOutput.AnchorRate">
+            <summary>
+            币种汇率
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CurOutput.AnchoringCurCode">
+            <summary>
+            锚定币种Code（默认美元）
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CurOutput.AnchorRateFlush">
+            <summary>
+            汇率刷新模式
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CurOutput.DecimalCount">
+            <summary>
+            小数位数
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CurOutput.IsDisable">
+            <summary>
+            是否禁用
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.CurOutput.CurType">
+            <summary>
+            虚拟币类型,
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurInput.CurCode">
+            <summary>
+            币种编码（唯一）
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurInput.CurEnName">
+            <summary>
+            币种英文名称(唯一)
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurInput.AnchorRate">
+            <summary>
+            币种汇率
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurInput.AnchoringCurCode">
+            <summary>
+            锚定币种Code（默认美元）
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurInput.AnchorRateFlush">
+            <summary>
+            汇率刷新模式
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurInput.DecimalCount">
+            <summary>
+            小数位数
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurInput.IsDisable">
+            <summary>
+            是否禁用
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurInput.CurType">
+            <summary>
+            虚拟币类型,
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurRateInput.CurCode">
+            <summary>
+            币种Code
+            </summary>
+        </member>
+        <member name="P:QuetoServer.Services.UpdateCurRateInput.Rate">
+            <summary>
+            汇率
+            </summary>
+        </member>
+    </members>
+</doc>

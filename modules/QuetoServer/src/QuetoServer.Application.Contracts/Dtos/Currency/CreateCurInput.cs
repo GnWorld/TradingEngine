@@ -3,10 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
-
 namespace QuetoServer.Services
 {
-    public class UpdateCurInput : EntityDto<int>
+    public class CreateCurInput : EntityDto
     {
         /// <summary>
         /// 币种编码（唯一）
@@ -44,10 +43,14 @@ namespace QuetoServer.Services
         /// </summary>
         public bool IsDisable { get; set; }
 
-
+        /// <summary>
+        /// 是否显示
+        /// </summary>
+        public bool IsShow { get; set; }
         /// <summary>
         /// 虚拟币类型,
         /// </summary>
         public Cur_CurTypeEnum CurType { get; set; }
+
     }
 }

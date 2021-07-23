@@ -1,5 +1,4 @@
 ﻿using QuetoServer.Curs;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,13 +39,26 @@ namespace QuetoServer.Services
         /// <returns></returns>
         public async Task<List<CurOutput>> GetCursAsync(string curCode)
         {
-            var currencies = 
+            var currencies =
                 _curRep
                     .WhereIf(!string.IsNullOrEmpty(curCode), o => o.CurCode == curCode)
                     .ToList();
             var outputs = ObjectMapper.Map<List<Cur>, List<CurOutput>>(currencies);
             return await Task.FromResult(outputs);
         }
+
+        /// <summary>
+        /// 获取单个币种
+        /// </summary>
+        /// <param name="curCode"></param>
+        /// <returns></returns>
+        public async Task<CurOutput> GetCurAsync(string curCode)
+        {
+            var cur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == curCode);
+
+            return ObjectMapper.Map<Cur, CurOutput>(cur);
+        }
+
 
         /// <summary>
         /// 更新币种
@@ -68,10 +80,10 @@ namespace QuetoServer.Services
         /// <param name="curCode"></param>
         /// <param name="rate"></param>
         /// <returns></returns>
-        public async Task UpdateCurRateAsync(string curCode, decimal rate)
+        public async Task UpdateCurRateAsync(UpdateCurRateInput input)
         {
-            var cur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == curCode);
-            cur.AnchorRate = rate;
+            var cur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == input.CurCode);
+            cur.AnchorRate = input.Rate;
             await _curRep.UpdateAsync(cur);
         }
     }

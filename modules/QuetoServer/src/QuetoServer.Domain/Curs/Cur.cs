@@ -21,7 +21,7 @@ namespace QuetoServer.Curs
         public string CurEnName { get; set; }
 
         /// <summary>
-        /// 币种汇率
+        /// 锚定汇率
         /// </summary>
         public decimal AnchorRate { get; set; }
 
