@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\modules\QuetoServer\src\QuetoServer.Domain.Shared\QuetoServer.Domain.Shared.csproj" />
+    <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.Domain.Shared\QuoteServer.Domain.Shared.csproj" />
   </ItemGroup>
 
 </Project>

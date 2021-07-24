@@ -9,7 +9,7 @@ using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
-using QuetoServer.EntityFrameworkCore;
+using QuoteServer.EntityFrameworkCore;
 
 namespace YT.Trading.EntityFrameworkCore
 {
@@ -20,7 +20,7 @@ namespace YT.Trading.EntityFrameworkCore
      */
     public class TradingMigrationsDbContext : AbpDbContext<TradingMigrationsDbContext>
     {
-        public TradingMigrationsDbContext(DbContextOptions<TradingMigrationsDbContext> options) 
+        public TradingMigrationsDbContext(DbContextOptions<TradingMigrationsDbContext> options)
             : base(options)
         {
 
@@ -43,7 +43,7 @@ namespace YT.Trading.EntityFrameworkCore
             builder.ConfigureTenantManagement();
 
             // 行情服务
-            builder.ConfigureQuetoServer();
+            builder.ConfigureQuoteServer();
             /* Configure your own tables/entities inside the ConfigureTrading method */
 
             builder.ConfigureTrading();

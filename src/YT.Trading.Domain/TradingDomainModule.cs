@@ -13,7 +13,7 @@ using Volo.Abp.PermissionManagement.Identity;
 using Volo.Abp.PermissionManagement.IdentityServer;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
-using QuetoServer;
+using QuoteServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -28,7 +28,7 @@ namespace YT.Trading
         typeof(AbpSettingManagementDomainModule),
         typeof(AbpTenantManagementDomainModule),
         typeof(AbpEmailingModule),
-        typeof(QuetoServerDomainModule)
+        typeof(QuoteServerDomainModule)
     )]
     public class TradingDomainModule : AbpModule
     {

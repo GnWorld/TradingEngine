@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\modules\QuetoServer\src\QuetoServer.Application.Contracts\QuetoServer.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.Application.Contracts\QuoteServer.Application.Contracts.csproj" />
     <ProjectReference Include="..\YT.Trading.Domain.Shared\YT.Trading.Domain.Shared.csproj" />
   </ItemGroup>
 

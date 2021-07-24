@@ -7,7 +7,7 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.TenantManagement;
-using QuetoServer;
+using QuoteServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -17,7 +17,7 @@ namespace YT.Trading
         typeof(AbpPermissionManagementHttpApiModule),
         typeof(AbpTenantManagementHttpApiModule),
         typeof(AbpFeatureManagementHttpApiModule),
-        typeof(QuetoServerHttpApiModule)
+        typeof(QuoteServerHttpApiModule)
         )]
     public class TradingHttpApiModule : AbpModule
     {

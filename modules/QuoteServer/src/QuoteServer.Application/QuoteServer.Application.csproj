@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>QuoteServer</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="4.3.0" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="4.3.0" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="4.3.0" />
+    <ProjectReference Include="..\QuoteServer.Application.Contracts\QuoteServer.Application.Contracts.csproj" />
+    <ProjectReference Include="..\QuoteServer.Domain\QuoteServer.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

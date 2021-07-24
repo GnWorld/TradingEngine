@@ -19,7 +19,7 @@ namespace YT.Trading.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.8");
 
-            modelBuilder.Entity("QuetoServer.Curs.Cur", b =>
+            modelBuilder.Entity("QuoteServer.Currency.Cur", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -93,7 +93,7 @@ namespace YT.Trading.Migrations
                     b.HasIndex("CurCode")
                         .IsUnique();
 
-                    b.ToTable("QuetoServer_Currencies");
+                    b.ToTable("QuoteServer_Currencies");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLog", b =>
