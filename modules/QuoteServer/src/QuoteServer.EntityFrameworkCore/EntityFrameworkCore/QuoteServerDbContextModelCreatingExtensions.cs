@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using QuoteServer.Currency;
+using QuoteServer.Instrument;
 using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 
@@ -39,6 +40,25 @@ namespace QuoteServer.EntityFrameworkCore
                 //Indexes  索引
                 b.HasIndex(q => q.CreationTime);
                 b.HasIndex(q => q.CurCode).IsUnique();
+                b.ConfigureByConvention();
+            });
+
+            builder.Entity<Ins>(b =>
+            {
+                //Configure table & schema name
+                b.ToTable(QuoteServerDbProperties.DbTablePrefix + "_Instrument", QuoteServerDbProperties.DbSchema);
+                b.Property(o => o.Code)
+                    .IsRequired()  //Not Null
+                    .HasColumnType("varchar(20)")
+                    .HasMaxLength(20);
+                b.Property(o => o.AssetName)
+                    .HasColumnType("varchar(20)")
+                    .HasMaxLength(20);
+                b.Property(o => o.Path)
+                    .IsRequired()
+                    .HasColumnType("varchar(20)");
+                //Indexes  索引
+                b.HasIndex(q => q.CreationTime);
                 b.ConfigureByConvention();
             });
             /* Configure all entities here. Example:

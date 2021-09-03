@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuoteServer.Currency;
+using QuoteServer.Instrument;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -11,13 +12,14 @@ namespace QuoteServer.EntityFrameworkCore
         /* Add DbSet for each Aggregate Root here. Example:
          * public DbSet<Question> Questions { get; set; }
          */
-
         public QuoteServerDbContext(DbContextOptions<QuoteServerDbContext> options)
             : base(options)
         {
 
         }
         public DbSet<Cur> Curs { get; set; }
+        public DbSet<Ins> Ins { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

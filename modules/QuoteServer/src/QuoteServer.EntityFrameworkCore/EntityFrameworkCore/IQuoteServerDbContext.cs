@@ -2,7 +2,7 @@
 using QuoteServer.Currency;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
-
+using QuoteServer.Instrument;
 namespace QuoteServer.EntityFrameworkCore
 {
     [ConnectionStringName(QuoteServerDbProperties.ConnectionStringName)]
@@ -12,5 +12,7 @@ namespace QuoteServer.EntityFrameworkCore
          * DbSet<Question> Questions { get; }
          */
         DbSet<Cur> Curs { get; set; }
+
+        DbSet<Ins> Ins { get; set; }
     }
 }

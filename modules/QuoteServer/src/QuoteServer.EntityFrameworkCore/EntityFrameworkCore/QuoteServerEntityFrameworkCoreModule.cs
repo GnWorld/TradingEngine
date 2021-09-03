@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using QuoteServer.Currency;
+using QuoteServer.Instrument;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
@@ -20,6 +21,7 @@ namespace QuoteServer.EntityFrameworkCore
                  * options.AddRepository<Question, EfCoreQuestionRepository>();
                  */
                 options.AddRepository<Cur, EfCoreRepository<QuoteServerDbContext, Cur>>();
+                options.AddRepository<Ins, EfCoreRepository<QuoteServerDbContext, Ins>>();
             });
         }
     }
