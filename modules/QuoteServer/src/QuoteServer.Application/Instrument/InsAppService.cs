@@ -46,7 +46,7 @@ namespace QuoteServer.Instrument
                 ins.Ask = input.Ask;
                 ins.Bid = input.Bid;
                 ins.LastModificationTime = DateTime.FromFileTimeUtc(input.Tick);
-                await _insRep.UpdateAsync(ins, true);
+                //await _insRep.UpdateAsync(ins, true);
             }
         }
     }

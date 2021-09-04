@@ -35,6 +35,7 @@ namespace QuoteServer
             _insRep = serviceFactory.ServiceProvider.GetRequiredService<IRepository<Ins>>();
             _clock = clock;
             timer.Period = 1;
+            timer.Logger = null;
 
         }
 
