@@ -26,6 +26,8 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.BackgroundWorkers;
+using QuoteServer;
 
 namespace YT.Trading
 {
@@ -116,7 +118,7 @@ namespace YT.Trading
                 },
                 options =>
                 {
-                    options.SwaggerDoc("v1", new OpenApiInfo {Title = "Trading API", Version = "v1"});
+                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Trading API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
                 });
         }
@@ -221,6 +223,7 @@ namespace YT.Trading
             app.UseAbpSerilogEnrichers();
             app.UseUnitOfWork();
             app.UseConfiguredEndpoints();
+            context.AddBackgroundWorker<MT4Worker>();
         }
     }
 }

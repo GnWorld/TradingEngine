@@ -16,7 +16,7 @@ namespace QuoteServer.Currency
 
         Task UpdateCurRateAsync(UpdateCurRateInput input);
 
-        Task<List<CurOutput>> GetCursAsync(string curCode);
+        Task<List<CurOutput>> GetCursAsync(string curCode = null);
         Task<CurOutput> GetCurAsync(string curCode);
     }
 }

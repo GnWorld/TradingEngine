@@ -24,9 +24,30 @@ namespace QuoteServer.Instrument
         public async Task<InsDto> AddInsAsync(InsDto input)
         {
             var entity = ObjectMapper.Map<InsDto, Ins>(input);
-            var cur = await _insRep.InsertAsync(entity, true);
-            var output = ObjectMapper.Map<Ins, InsDto>(cur);
+            var ins = await _insRep.InsertAsync(entity, true);
+            var output = ObjectMapper.Map<Ins, InsDto>(ins);
             return output;
+        }
+
+
+        public async Task<InsDto> GetInsByCodeAsync(string Code)
+        {
+            var ins = await _insRep.GetAsync(o => o.Code == Code);
+
+            var output = ObjectMapper.Map<Ins, InsDto>(ins);
+            return output;
+        }
+
+        public async Task UpdateInsPriceAsync(InsPriceDto input)
+        {
+            var ins = await _insRep.GetAsync(o => o.Code == input.Code);
+            if (ins.Ask != input.Ask || ins.Bid != input.Bid)
+            {
+                ins.Ask = input.Ask;
+                ins.Bid = input.Bid;
+                ins.LastModificationTime = DateTime.FromFileTimeUtc(input.Tick);
+                await _insRep.UpdateAsync(ins, true);
+            }
         }
     }
 }

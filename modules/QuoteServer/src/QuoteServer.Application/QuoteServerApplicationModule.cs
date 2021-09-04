@@ -3,13 +3,16 @@ using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.Application;
 using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.BackgroundWorkers;
+
 namespace QuoteServer
 {
     [DependsOn(
         typeof(QuoteServerDomainModule),
         typeof(QuoteServerApplicationContractsModule),
         typeof(AbpDddApplicationModule),
-        typeof(AbpAutoMapperModule)
+        typeof(AbpAutoMapperModule),
+       typeof(AbpBackgroundWorkersModule)
         )]
     public class QuoteServerApplicationModule : AbpModule
     {

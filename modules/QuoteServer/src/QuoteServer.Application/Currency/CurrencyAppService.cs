@@ -39,7 +39,7 @@ namespace QuoteServer.Currency
         /// </summary>
         /// <param name="curCode"></param>
         /// <returns></returns>
-        public async Task<List<CurOutput>> GetCursAsync(string curCode)
+        public async Task<List<CurOutput>> GetCursAsync(string curCode = null)
         {
             var currencies =
                 _curRep
