@@ -17,19 +17,21 @@ namespace QuoteServer.Brokers
     public class MT4Worker : AsyncPeriodicBackgroundWorkerBase
     {
         private readonly Clock _clock;
-        private IRepository<Cur> _curRep;
-        private IRepository<Ins> _insRep;
-        private readonly IInsAppService _insAppService;
-        private readonly ICurrencyAppService _curAppService;
+        //private IRepository<Cur> _curRep;
+        //private IRepository<Ins> _insRep;
+        //private readonly IInsAppService _insAppService;
+        //private readonly ICurrencyAppService _curAppService;
+        private readonly IBrokerAppService _brokerAppService;
         public MT4Worker(AbpAsyncTimer timer, IServiceScopeFactory serviceScopeFactory, Clock clock) : base(timer, serviceScopeFactory)
         {
             var serviceFactory = serviceScopeFactory.CreateScope();
-            _curAppService = serviceFactory.ServiceProvider.GetService<ICurrencyAppService>();
-            _insAppService = serviceFactory.ServiceProvider.GetService<IInsAppService>();
-            _curRep = serviceFactory.ServiceProvider.GetRequiredService<IRepository<Cur>>();
-            _insRep = serviceFactory.ServiceProvider.GetRequiredService<IRepository<Ins>>();
+            //_curAppService = serviceFactory.ServiceProvider.GetService<ICurrencyAppService>();
+            //_insAppService = serviceFactory.ServiceProvider.GetService<IInsAppService>();
+            //_curRep = serviceFactory.ServiceProvider.GetRequiredService<IRepository<Cur>>();
+            //_insRep = serviceFactory.ServiceProvider.GetRequiredService<IRepository<Ins>>();
+            _brokerAppService = serviceFactory.ServiceProvider.GetRequiredService<IBrokerAppService>();
             _clock = clock;
-            timer.Period = 1;
+            timer.Period = 1; // 1毫秒执行一次
             timer.Logger = null;
 
         }
@@ -64,7 +66,8 @@ namespace QuoteServer.Brokers
                             input.Ask = decimal.Parse(lines[1]);
                             input.Bid = decimal.Parse(lines[2]);
                             input.Tick = long.Parse(lines[3]);
-                            await _insAppService.UpdateInsPriceAsync(input);
+                            await _brokerAppService.CommitPriceAsync(input);
+                            //await _insAppService.UpdateInsPriceAsync(input);
                         }
                     }
                 }

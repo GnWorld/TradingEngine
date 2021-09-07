@@ -36,11 +36,11 @@ namespace QuoteServer.AppService.Dtos
         /// <summary>
         /// 多方币种
         /// </summary>
-        public long Long { get; set; }
+        public int Long { get; set; }
         /// <summary>
         /// 空方币种
         /// </summary>
-        public long Short { get; set; }
+        public int Short { get; set; }
 
         /// <summary>
         /// 价格转换系数   如接入BTCUSD行情，设置0.2 即缩小5倍 

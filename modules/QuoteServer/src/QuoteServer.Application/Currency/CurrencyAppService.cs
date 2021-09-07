@@ -53,7 +53,7 @@ namespace QuoteServer.AppService
         /// </summary>
         /// <param name="curCode"></param>
         /// <returns></returns>
-        public async Task<CurOutput> GetCurAsync(string curCode)
+        public async Task<CurOutput> GetCurByCurCodeAsync(string curCode)
         {
             var cur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == curCode);
 
@@ -86,6 +86,13 @@ namespace QuoteServer.AppService
             var cur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == input.CurCode);
             cur.AnchorRate = input.Rate;
             await _curRep.UpdateAsync(cur);
+        }
+
+        public async Task<CurOutput> GetCurByIdAsync(int Id)
+        {
+            var cur = await _curRep.FirstOrDefaultAsync(o => o.Id == Id);
+
+            return ObjectMapper.Map<Cur, CurOutput>(cur);
         }
     }
 }
