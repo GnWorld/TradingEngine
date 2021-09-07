@@ -4,7 +4,7 @@ using System.Text;
 using Volo.Abp.Domain.Entities.Auditing;
 using static QuoteServer.Enums.InstrumentEnums;
 
-namespace QuoteServer.Instrument
+namespace QuoteServer.Domain.Entities
 {
     public class Ins : FullAuditedEntity<int>
     {

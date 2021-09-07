@@ -1,23 +1,18 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using QuoteServer.Currency;
-using QuoteServer.Instrument;
+using QuoteServer.AppService;
+using QuoteServer.AppService.Dtos;
+using QuoteServer.Domain.Entities;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using Volo.Abp.BackgroundWorkers;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Threading;
 using Volo.Abp.Timing;
-using System.Text.RegularExpressions;
 using YT.Core;
 using YT.Core.FileHelper;
-using QuoteServer.Instrument.Dtos;
 
-namespace QuoteServer
+namespace QuoteServer.Brokers
 {
     public class MT4Worker : AsyncPeriodicBackgroundWorkerBase
     {
@@ -72,10 +67,6 @@ namespace QuoteServer
                             await _insAppService.UpdateInsPriceAsync(input);
                         }
                     }
-
-
-
-
                 }
 
                 var n = 0;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QuoteServer.Enums.CurrencyEnums
+namespace QuoteServer.Enums
 {
     /// <summary>
     /// 币种类型

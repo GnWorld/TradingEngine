@@ -1,10 +1,11 @@
-﻿using System;
+﻿using QuoteServer.AppService.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 
-namespace QuoteServer.Currency
+namespace QuoteServer.AppService
 {
     public interface ICurrencyAppService : IApplicationService
     {

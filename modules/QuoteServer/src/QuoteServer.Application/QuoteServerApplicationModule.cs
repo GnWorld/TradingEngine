@@ -4,6 +4,9 @@ using Volo.Abp.Modularity;
 using Volo.Abp.Application;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.BackgroundWorkers;
+using Volo.Abp.BackgroundWorkers.Quartz;
+using QuoteServer.Brokers;
+using Volo.Abp;
 
 namespace QuoteServer
 {
@@ -12,12 +15,14 @@ namespace QuoteServer
         typeof(QuoteServerApplicationContractsModule),
         typeof(AbpDddApplicationModule),
         typeof(AbpAutoMapperModule),
-       typeof(AbpBackgroundWorkersModule)
+        typeof(AbpBackgroundWorkersModule)
+        //typeof(AbpBackgroundWorkersQuartzModule)
         )]
     public class QuoteServerApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
+
             context.Services.AddAutoMapperObjectMapper<QuoteServerApplicationModule>();
             Configure<AbpAutoMapperOptions>(options =>
             {
@@ -36,6 +41,10 @@ namespace QuoteServer
                     };
                 });
             });
+        }
+        public override void OnApplicationInitialization(ApplicationInitializationContext context)
+        {
+            context.AddBackgroundWorker<MT4Worker>();
         }
     }
 }

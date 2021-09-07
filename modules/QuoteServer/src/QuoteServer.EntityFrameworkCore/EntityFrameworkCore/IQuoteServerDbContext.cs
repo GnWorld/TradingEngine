@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using QuoteServer.Currency;
+using QuoteServer.Domain.Entities;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
-using QuoteServer.Instrument;
 namespace QuoteServer.EntityFrameworkCore
 {
     [ConnectionStringName(QuoteServerDbProperties.ConnectionStringName)]

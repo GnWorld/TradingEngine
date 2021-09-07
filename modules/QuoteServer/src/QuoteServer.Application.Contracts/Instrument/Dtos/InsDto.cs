@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using static QuoteServer.Enums.InstrumentEnums;
 using Volo.Abp.Application.Dtos;
-namespace QuoteServer.Instrument.Dtos
+namespace QuoteServer.AppService.Dtos
 {
     public class InsDto : FullAuditedEntityDto<int>
     {

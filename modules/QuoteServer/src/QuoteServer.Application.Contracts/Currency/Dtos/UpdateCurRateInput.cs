@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QuoteServer.Currency
+namespace QuoteServer.AppService.Dtos
 {
     public class UpdateCurRateInput
     {

@@ -1,13 +1,12 @@
-﻿using QuoteServer.Currency;
-using System;
+﻿using QuoteServer.AppService.Dtos;
+using QuoteServer.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Uow;
 
-namespace QuoteServer.Currency
+namespace QuoteServer.AppService
 {
     public class CurrencyAppService : QuoteServerAppService, ICurrencyAppService
     {

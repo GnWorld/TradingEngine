@@ -1,7 +1,7 @@
-﻿using QuoteServer.Enums.CurrencyEnums;
+﻿using QuoteServer.Enums;
 using Volo.Abp.Application.Dtos;
 
-namespace QuoteServer.Currency
+namespace QuoteServer.AppService.Dtos
 {
     public class CurOutput : EntityDto<int>
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
-namespace QuoteServer.Instrument.Dtos
+namespace QuoteServer.AppService.Dtos
 {
     public class InsPriceDto : FullAuditedEntityDto<int>
     {

@@ -27,7 +27,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.BackgroundWorkers;
-using QuoteServer;
+using QuoteServer.Brokers;
 
 namespace YT.Trading
 {
@@ -223,7 +223,7 @@ namespace YT.Trading
             app.UseAbpSerilogEnrichers();
             app.UseUnitOfWork();
             app.UseConfiguredEndpoints();
-            context.AddBackgroundWorker<MT4Worker>();
+            
         }
     }
 }

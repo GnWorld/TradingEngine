@@ -1,10 +1,10 @@
-﻿using QuoteServer.Enums.CurrencyEnums;
+﻿using QuoteServer.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Domain.Entities.Auditing;
 
-namespace QuoteServer.Currency
+namespace QuoteServer.Domain.Entities
 {
     /// <summary>
     /// Currency  货币表

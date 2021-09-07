@@ -1,10 +1,10 @@
-﻿using QuoteServer.Enums.CurrencyEnums;
+﻿using QuoteServer.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
 
-namespace QuoteServer.Currency
+namespace QuoteServer.AppService.Dtos
 {
     public class CreateCurInput : EntityDto
     {

@@ -1,11 +1,11 @@
-﻿using QuoteServer.Instrument.Dtos;
+﻿using QuoteServer.AppService.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 
-namespace QuoteServer.Instrument
+namespace QuoteServer.AppService
 {
     public interface IInsAppService : IApplicationService
     {

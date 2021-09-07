@@ -48,4 +48,28 @@
     <ProjectReference Include="..\YT.Trading.EntityFrameworkCore.DbMigrations\YT.Trading.EntityFrameworkCore.DbMigrations.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Pages\_ViewImports.cshtml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="abp.resourcemapping.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="gulpfile.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="tempkey.jwk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="tempkey.rsa">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="yarn.lock">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

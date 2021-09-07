@@ -1,24 +1,28 @@
-﻿using QuoteServer.Instrument.Dtos;
+﻿using QuoteServer.Domain.Entities;
+using QuoteServer.AppService.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Guids;
 using Volo.Abp.Uow;
 
-namespace QuoteServer.Instrument
+namespace QuoteServer.AppService
 {
     public class InsAppService : QuoteServerAppService, IInsAppService
     {
         private readonly IRepository<Ins> _insRep;
 
-        private readonly IUnitOfWork _uow;
+        //private readonly IUnitOfWork _uow;
+        private readonly IGuidGenerator _guidGenerator;
 
-        public InsAppService(IRepository<Ins> insRep, IUnitOfWork uow)
+        public InsAppService(IRepository<Ins> insRep, IUnitOfWork uow, IGuidGenerator guidGenerator)
         {
             _insRep = insRep;
-            _uow = uow;
+            // _uow = uow;
+            _guidGenerator = guidGenerator;
         }
 
         public async Task<InsDto> AddInsAsync(InsDto input)

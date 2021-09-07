@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using QuoteServer.Currency;
-using QuoteServer.Instrument;
+﻿using Microsoft.EntityFrameworkCore;
+using QuoteServer.Domain.Entities;
+using System;
 using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 

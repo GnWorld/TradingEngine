@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using QuoteServer.Currency;
-using QuoteServer.Instrument;
-using QuoteServer.Instrument.Dtos;
+using QuoteServer.AppService.Dtos;
+using QuoteServer.Domain.Entities;
 using Volo.Abp.AutoMapper;
 
 namespace QuoteServer
