@@ -3,6 +3,7 @@ using QuoteServer.AppService;
 using QuoteServer.AppService.Dtos;
 using QuoteServer.Domain.Entities;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Volo.Abp.BackgroundWorkers;
@@ -14,6 +15,9 @@ using YT.Core.FileHelper;
 
 namespace QuoteServer.Brokers
 {
+    /// <summary>
+    /// MT4行情源
+    /// </summary>
     public class MT4Worker : AsyncPeriodicBackgroundWorkerBase
     {
         private readonly Clock _clock;
@@ -45,7 +49,7 @@ namespace QuoteServer.Brokers
         }
         private async Task ProcessPrices()
         {
-            foreach (var item in ConstFields.MT4Sourcies)
+            foreach (var item in ConstFields.MT4Sourcies_Enable)
             {
 
                 var path = ConstFields.GetMT4Path(item.MT4Key);
@@ -55,9 +59,9 @@ namespace QuoteServer.Brokers
                 {
                     var prices = FileOperation.TryReadAllLines(f_prices);
                     Console.WriteLine(prices[0]);
+                    List<InsPriceDto> insPirces = new List<InsPriceDto>();
                     for (int i = 0; i < prices.Length; i++)
                     {
-
                         var lines = prices[i].Split(";");
                         if (lines.Length > 1)
                         {
@@ -66,13 +70,11 @@ namespace QuoteServer.Brokers
                             input.Ask = decimal.Parse(lines[1]);
                             input.Bid = decimal.Parse(lines[2]);
                             input.Tick = long.Parse(lines[3]);
-                            await _brokerAppService.CommitPriceAsync(input);
-                            //await _insAppService.UpdateInsPriceAsync(input);
+                            insPirces.Add(input);
                         }
                     }
+                    await _brokerAppService.CommitPriceAsync(insPirces);
                 }
-
-                var n = 0;
             }
 
         }

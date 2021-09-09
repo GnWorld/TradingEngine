@@ -752,10 +752,21 @@ namespace YT.Core.FileHelper
         /// <param name="content">写入的内容</param>
         public static void AppendText(string filePath, string content)
         {
+            CreateFile(filePath);
             File.AppendAllText(filePath, content);
         }
 
+        public static void AppendLine(string filePath, string content)
+        {
+            CreateFile(filePath);
+            File.AppendAllLines(filePath, Array.Empty<string>().Append(content));
+        }
 
+        public static void AppendLines(string filePath, string[] contents)
+        {
+            CreateFile(filePath);
+            File.AppendAllLines(filePath, contents);
+        }
         #endregion
 
         #region 将现有文件的内容复制到新文件中

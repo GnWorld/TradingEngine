@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Guids;
 using Volo.Abp.Uow;
+using YT.Core.TaskLib;
+using QuoteServer.Enums;
+using YT.Core;
+using YT.Core.FileHelper;
+using System.IO;
 
 namespace QuoteServer.AppService
 {
@@ -17,12 +22,16 @@ namespace QuoteServer.AppService
 
         //private readonly IUnitOfWork _uow;
         private readonly IGuidGenerator _guidGenerator;
+        private readonly TaskQueue _taskQueue;
+        private readonly ICurrencyAppService _curAppService;
 
-        public InsAppService(IRepository<Ins> insRep, IUnitOfWork uow, IGuidGenerator guidGenerator)
+        public InsAppService(IRepository<Ins> insRep, IUnitOfWork uow, IGuidGenerator guidGenerator, ICurrencyAppService currencyAppService)
         {
+            _taskQueue = new TaskQueue(10); // 线程队列，最大线程10
             _insRep = insRep;
             // _uow = uow;
             _guidGenerator = guidGenerator;
+            _curAppService = currencyAppService;
         }
 
         public async Task<InsDto> AddInsAsync(InsDto input)
@@ -34,7 +43,8 @@ namespace QuoteServer.AppService
         }
 
 
-        public async Task<InsDto> GetInsByCodeAsync(string Code)
+
+        public async Task<InsDto> GetInsAsync(string Code)
         {
             var ins = await _insRep.GetAsync(o => o.Code == Code);
 
@@ -42,16 +52,66 @@ namespace QuoteServer.AppService
             return output;
         }
 
-        public async Task UpdateInsPriceAsync(InsPriceDto input)
+        #region InsChange
+
+        /// <summary>
+        /// 更新价格
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task UpdateInsPriceAsync(List<InsPriceDto> input)
         {
-            var ins = await _insRep.GetAsync(o => o.Code == input.Code);
-            if (ins.Ask != input.Ask || ins.Bid != input.Bid)
+            foreach (var item in input)
             {
-                ins.Ask = input.Ask;
-                ins.Bid = input.Bid;
-                ins.LastModificationTime = DateTime.FromFileTimeUtc(input.Tick);
-                //await _insRep.UpdateAsync(ins, true);
+                _taskQueue.Queue(async () => await FlushInsAsync(item));
+            }
+            await _taskQueue.Process();
+        }
+        /// <summary>
+        /// 品种价格更改
+        /// </summary>
+        /// <param name="insPriceDto"></param>
+        /// <returns></returns>
+        public async Task FlushInsAsync(InsPriceDto insPriceDto)
+        {
+            using var cw = new CodeWrapper("FlushIns");
+            var ins = await _insRep.GetAsync(o => o.Code == insPriceDto.Code);
+            if (ins.EnableQuote && (ins.Ask != insPriceDto.Ask || ins.Bid != insPriceDto.Bid))
+            {
+                ins.Ask = insPriceDto.Ask;
+                ins.Bid = insPriceDto.Bid;
+                ins.LastModificationTime = DateTime.FromFileTimeUtc(insPriceDto.Tick);
+                var historyPath = "D:\\InsHistory\\" + ins.Code.Replace(':', '_') + "\\" + DateTime.UtcNow.ToString("yyyy-MM-mm") + ".txt";
+                FileOperation.AppendText(historyPath, ins.Ask.ToString() + ";" + ins.Bid + ";" + insPriceDto.Tick);
+                await _insRep.UpdateAsync(ins, true);
+            }
+            var flushLong = false;
+            var flushShort = false;
+            switch (ins.FlushCurType)
+            {
+                case InstrumentEnums.Ins_FlushCurTypeEnum.FlushLong:
+                    flushLong = true;
+                    break;
+                case InstrumentEnums.Ins_FlushCurTypeEnum.FlushShort:
+                    flushShort = true;
+                    break;
+                case InstrumentEnums.Ins_FlushCurTypeEnum.Both:
+                    flushLong = true;
+                    flushShort = true;
+                    break;
+                default:
+                    break;
+            }
+            if (flushLong)
+            {
+                await _curAppService.UpdateCurRateAsync(new UpdateCurRateInput() { LongCur = ins.Long, ShortCur = ins.Short, FlushCur = ins.Long, Rate = (ins.Ask + ins.Bid) / 2 });
+            }
+            if (flushShort)
+            {
+                await _curAppService.UpdateCurRateAsync(new UpdateCurRateInput() { LongCur = ins.Short, ShortCur = ins.Short, FlushCur = ins.Short, Rate = (ins.Ask + ins.Bid) / 2 });
             }
         }
+        #endregion
+
     }
 }

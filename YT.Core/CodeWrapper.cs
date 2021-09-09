@@ -21,7 +21,7 @@ namespace YT.Core
 
         public void Dispose()
         {
-            Console.WriteLine($"{CodeKey}运行耗时：" + new TimeSpan(DateTime.Now.Ticks - Since).TotalSeconds);
+            Console.WriteLine($"{CodeKey}运行耗时：{new TimeSpan(DateTime.Now.Ticks - Since).TotalSeconds}秒" );
         }
 
         //~CodeWrapper() => this.Dispose();

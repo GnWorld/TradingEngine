@@ -17,10 +17,12 @@ namespace QuoteServer.AppService
 
         Task UpdateCurRateAsync(UpdateCurRateInput input);
 
-        Task<List<CurOutput>> GetCursAsync(string curCode = null);
-        Task<CurOutput> GetCurByCurCodeAsync(string curCode);
+        
+        Task<CurOutput> GetCurAsync(string curCode);
 
-        Task<CurOutput> GetCurByIdAsync(int id);
+        Task<List<CurOutput>> GetCursAsync(string curCode = null);
+
+        Task<CurOutput> GetCurAsync(int id);
 
     }
 }

@@ -10,9 +10,11 @@ namespace QuoteServer.AppService
     public interface IInsAppService : IApplicationService
     {
         Task<InsDto> AddInsAsync(InsDto input);
-        Task UpdateInsPriceAsync(InsPriceDto input);
+        Task UpdateInsPriceAsync(List<InsPriceDto> input);
 
-        Task<InsDto> GetInsByCodeAsync(string Code);
+        Task<InsDto> GetInsAsync(string Code);
+
+        Task FlushInsAsync(InsPriceDto insPriceDto);
 
     }
 

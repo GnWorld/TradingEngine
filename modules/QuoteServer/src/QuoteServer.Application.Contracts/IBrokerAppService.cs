@@ -13,7 +13,7 @@ namespace QuoteServer
         /// 提交价格
         /// </summary>
         /// <returns></returns>
-        public Task CommitPriceAsync(InsPriceDto input);
+        public Task CommitPriceAsync(List<InsPriceDto> input);
 
         /// <summary>
         /// 提交历史

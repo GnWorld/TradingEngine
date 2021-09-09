@@ -1,10 +1,12 @@
 ﻿using QuoteServer.AppService.Dtos;
 using QuoteServer.Domain.Entities;
+using QuoteServer.Settings;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Uow;
+using YT.Core;
 
 namespace QuoteServer.AppService
 {
@@ -53,7 +55,7 @@ namespace QuoteServer.AppService
         /// </summary>
         /// <param name="curCode"></param>
         /// <returns></returns>
-        public async Task<CurOutput> GetCurByCurCodeAsync(string curCode)
+        public async Task<CurOutput> GetCurAsync(string curCode)
         {
             var cur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == curCode);
 
@@ -83,12 +85,26 @@ namespace QuoteServer.AppService
         /// <returns></returns>
         public async Task UpdateCurRateAsync(UpdateCurRateInput input)
         {
-            var cur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == input.CurCode);
-            cur.AnchorRate = input.Rate;
-            await _curRep.UpdateAsync(cur);
+            using var cw = new CodeWrapper("UpdateCurRate");
+            if (input.FlushCur!=QuoteServerSettings.BaseCurId)
+            {
+                var cur = await _curRep.FirstOrDefaultAsync(o => (string.IsNullOrEmpty(input.CurCode) && o.CurCode == input.CurCode) || (input.FlushCur > 0 && o.Id == input.FlushCur));
+                if (cur.Id == input.LongCur)
+                {
+                    var shortCur = await _curRep.FirstOrDefaultAsync(o => o.Id == input.ShortCur);
+                    cur.AnchorRate = shortCur.AnchorRate * input.Rate;
+                }
+                else
+                {
+                    var longCur = await _curRep.FirstOrDefaultAsync(o => o.Id == input.LongCur);
+                    cur.AnchorRate = longCur.AnchorRate / input.Rate;
+                }
+                await _curRep.UpdateAsync(cur);
+            }
+
         }
 
-        public async Task<CurOutput> GetCurByIdAsync(int Id)
+        public async Task<CurOutput> GetCurAsync(int Id)
         {
             var cur = await _curRep.FirstOrDefaultAsync(o => o.Id == Id);
 

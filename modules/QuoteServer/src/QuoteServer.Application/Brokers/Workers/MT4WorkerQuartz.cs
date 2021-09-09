@@ -42,7 +42,7 @@ namespace QuoteServer.Brokers
         }
         private async Task ProcessPrices()
         {
-            foreach (var item in ConstFields.MT4Sourcies)
+            foreach (var item in ConstFields.MT4Sourcies_Enable)
             {
 
                 var path = ConstFields.GetMT4Path(item.MT4Key);
@@ -50,23 +50,25 @@ namespace QuoteServer.Brokers
                 var f_prices = path + @"\tick\prices.txt";
                 if (File.Exists(f_prices))
                 {
-                    var prices = FileOperation.TryReadAllLines(f_prices);
-                    
-                    for (int i = 0; i < prices.Length; i++)
+                    var lines = FileOperation.TryReadAllLines(f_prices);
+                    var prices = new List<InsPriceDto>();
+                    for (int i = 0; i < lines.Length; i++)
                     {
 
-                        var lines = prices[i].Split(";");
+                        var line = lines[i].Split(";");
                         if (lines.Length > 1)
                         {
-                            Console.WriteLine(prices[0]);
+                            Console.WriteLine(line[0]);
                             var input = new InsPriceDto();
-                            input.Code = item.MT4Name + ":" + lines[0];
-                            input.Ask = decimal.Parse(lines[1]);
-                            input.Bid = decimal.Parse(lines[2]);
-                            input.Tick = long.Parse(lines[3]);
-                            await _insAppService.UpdateInsPriceAsync(input);
+                            input.Code = item.MT4Name + ":" + line[0];
+                            input.Ask = decimal.Parse(line[1]);
+                            input.Bid = decimal.Parse(line[2]);
+                            input.Tick = long.Parse(line[3]);
+                            prices.Add(input);
+
                         }
                     }
+                    await _insAppService.UpdateInsPriceAsync(prices);
                 }
             }
         }
