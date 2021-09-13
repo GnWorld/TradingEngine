@@ -1,4 +1,6 @@
-﻿using Volo.Abp.Data;
+﻿using MongoDB.Driver;
+using QuoteServer.Domain.Entities;
+using Volo.Abp.Data;
 using Volo.Abp.MongoDB;
 
 namespace QuoteServer.MongoDB
@@ -9,5 +11,9 @@ namespace QuoteServer.MongoDB
         /* Define mongo collections here. Example:
          * IMongoCollection<Question> Questions { get; }
          */
+        //IMongoCollection<Cur> Curs { get; set; }
+
+        //IMongoCollection<Ins> Ins { get; set; }
     }
+
 }

@@ -6,7 +6,7 @@ namespace QuoteServer.MongoDB
     public class QuoteServerMongoModelBuilderConfigurationOptions : AbpMongoModelBuilderConfigurationOptions
     {
         public QuoteServerMongoModelBuilderConfigurationOptions(
-            [NotNull] string collectionPrefix = "")
+            [NotNull] string collectionPrefix = "QuoteServer")
             : base(collectionPrefix)
         {
         }

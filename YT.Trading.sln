@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuoteServer.HttpApi", "modu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuoteServer.HttpApi.Client", "modules\QuoteServer\src\QuoteServer.HttpApi.Client\QuoteServer.HttpApi.Client.csproj", "{B8776961-29D4-4E79-86D0-6C695F2593E6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuoteServer.MongoDB", "modules\QuoteServer\src\QuoteServer.MongoDB\QuoteServer.MongoDB.csproj", "{0121FC96-ABBD-43F1-B30E-959D64D6132D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{B8776961-29D4-4E79-86D0-6C695F2593E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8776961-29D4-4E79-86D0-6C695F2593E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8776961-29D4-4E79-86D0-6C695F2593E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0121FC96-ABBD-43F1-B30E-959D64D6132D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0121FC96-ABBD-43F1-B30E-959D64D6132D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0121FC96-ABBD-43F1-B30E-959D64D6132D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0121FC96-ABBD-43F1-B30E-959D64D6132D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,6 +159,7 @@ Global
 		{7238DA8F-43FB-4CA0-9AD4-144BD2F22F69} = {C00EB5B0-F20D-48F9-A347-78D62A17D088}
 		{F0ACC5B7-6AC6-4375-93AB-CC8881BA9217} = {C00EB5B0-F20D-48F9-A347-78D62A17D088}
 		{B8776961-29D4-4E79-86D0-6C695F2593E6} = {C00EB5B0-F20D-48F9-A347-78D62A17D088}
+		{0121FC96-ABBD-43F1-B30E-959D64D6132D} = {C00EB5B0-F20D-48F9-A347-78D62A17D088}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}
