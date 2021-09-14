@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using QuoteServer.Domain.Entities;
 using Volo.Abp.Modularity;
 using Volo.Abp.MongoDB;
+using Volo.Abp.Uow;
 
 namespace QuoteServer.MongoDB
 {
@@ -17,6 +19,14 @@ namespace QuoteServer.MongoDB
                 /* Add custom repositories here. Example:
                  * options.AddRepository<Question, MongoQuestionRepository>();
                  */
+                options.AddDefaultRepositories<Cur>();
+                //options.AddRepository<Cur, <QuoteServerMongoDbContext, Cur>>();
+                options.AddDefaultRepositories<Ins>();
+            });
+            //MongoDb 事务
+            Configure<AbpUnitOfWorkDefaultOptions>(options =>
+            {
+                options.TransactionBehavior = UnitOfWorkTransactionBehavior.Enabled;
             });
         }
     }
