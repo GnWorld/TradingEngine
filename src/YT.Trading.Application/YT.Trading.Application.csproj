@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.Application\QuoteServer.Application.csproj" />
     <ProjectReference Include="..\YT.Trading.Domain\YT.Trading.Domain.csproj" />
     <ProjectReference Include="..\YT.Trading.Application.Contracts\YT.Trading.Application.Contracts.csproj" />

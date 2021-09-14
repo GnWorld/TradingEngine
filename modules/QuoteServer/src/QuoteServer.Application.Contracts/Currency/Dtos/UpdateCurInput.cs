@@ -6,7 +6,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace QuoteServer.AppService.Dtos
 {
-    public class UpdateCurInput : EntityDto<int>
+    public class UpdateCurInput : EntityDto<Guid>
     {
         /// <summary>
         /// 币种编码（唯一）

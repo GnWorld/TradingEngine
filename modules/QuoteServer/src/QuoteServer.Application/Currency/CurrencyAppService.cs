@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Guids;
 using Volo.Abp.Uow;
 using YT.Core;
 
@@ -15,11 +16,13 @@ namespace QuoteServer.AppService
         private readonly IRepository<Cur> _curRep;
 
         private readonly IUnitOfWork _uow;
+        private readonly IGuidGenerator _guidGenerator;
 
-        public CurrencyAppService(IRepository<Cur> repository, IUnitOfWork uow)
+        public CurrencyAppService(IRepository<Cur> repository, IUnitOfWork uow, IGuidGenerator guidGenerator)
         {
             _curRep = repository;
             _uow = uow;
+            _guidGenerator = guidGenerator;
         }
 
         /// <summary>
@@ -29,10 +32,20 @@ namespace QuoteServer.AppService
         /// <returns></returns>
         public async Task<CurOutput> AddAsync(CreateCurInput input)
         {
-            var entity = ObjectMapper.Map<CreateCurInput, Cur>(input);
-            var cur = await _curRep.InsertAsync(entity, true);
-            var output = ObjectMapper.Map<Cur, CurOutput>(cur);
-            return output;
+            try
+            {
+                var entity = ObjectMapper.Map<CreateCurInput, Cur>(input);
+                var cur = await _curRep.InsertAsync(entity, true);
+
+                var output = ObjectMapper.Map<Cur, CurOutput>(cur);
+                return output;
+            }
+            catch (System.Exception ex)
+            {
+
+                throw;
+            }
+
         }
 
         /// <summary>
@@ -86,29 +99,22 @@ namespace QuoteServer.AppService
         public async Task UpdateCurRateAsync(UpdateCurRateInput input)
         {
             using var cw = new CodeWrapper("UpdateCurRate");
-            if (input.FlushCur!=QuoteServerSettings.BaseCurId)
+            if (input.FlushCur != QuoteServerSettings.BaseCurCode)
             {
-                var cur = await _curRep.FirstOrDefaultAsync(o => (string.IsNullOrEmpty(input.CurCode) && o.CurCode == input.CurCode) || (input.FlushCur > 0 && o.Id == input.FlushCur));
-                if (cur.Id == input.LongCur)
+                var cur = await _curRep.FirstOrDefaultAsync(o => (string.IsNullOrEmpty(input.CurCode) && o.CurCode == input.CurCode) || (!string.IsNullOrEmpty(input.FlushCur) && o.CurCode == input.FlushCur));
+                if (cur.CurCode == input.LongCur)
                 {
-                    var shortCur = await _curRep.FirstOrDefaultAsync(o => o.Id == input.ShortCur);
+                    var shortCur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == input.ShortCur);
                     cur.AnchorRate = shortCur.AnchorRate * input.Rate;
                 }
                 else
                 {
-                    var longCur = await _curRep.FirstOrDefaultAsync(o => o.Id == input.LongCur);
+                    var longCur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == input.LongCur);
                     cur.AnchorRate = longCur.AnchorRate / input.Rate;
                 }
                 await _curRep.UpdateAsync(cur);
             }
 
-        }
-
-        public async Task<CurOutput> GetCurAsync(int Id)
-        {
-            var cur = await _curRep.FirstOrDefaultAsync(o => o.Id == Id);
-
-            return ObjectMapper.Map<Cur, CurOutput>(cur);
         }
     }
 }

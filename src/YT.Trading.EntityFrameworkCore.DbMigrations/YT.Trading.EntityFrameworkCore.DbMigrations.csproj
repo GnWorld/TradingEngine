@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.EntityFrameworkCore\QuoteServer.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.MongoDB\QuoteServer.MongoDB.csproj" />
     <ProjectReference Include="..\YT.Trading.EntityFrameworkCore\YT.Trading.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

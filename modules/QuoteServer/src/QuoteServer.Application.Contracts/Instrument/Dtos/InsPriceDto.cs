@@ -4,7 +4,7 @@ using System.Text;
 using Volo.Abp.Application.Dtos;
 namespace QuoteServer.AppService.Dtos
 {
-    public class InsPriceDto : FullAuditedEntityDto<int>
+    public class InsPriceDto : FullAuditedEntityDto<Guid>
     {
         public string Code { get; set; }
         /// <summary>

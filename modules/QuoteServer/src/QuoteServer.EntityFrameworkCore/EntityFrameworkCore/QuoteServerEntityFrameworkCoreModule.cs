@@ -19,10 +19,10 @@ namespace QuoteServer.EntityFrameworkCore
                 /* Add custom repositories here. Example:
                  * options.AddRepository<Question, EfCoreQuestionRepository>();
                  */
-                options.AddDefaultRepositories<Cur>();
-                options.AddDefaultRepositories<Ins>();
-                //options.AddRepository<Cur, EfCoreRepository<QuoteServerDbContext, Cur>>();
-                //options.AddRepository<Ins, EfCoreRepository<QuoteServerDbContext, Ins>>();
+                //options.AddDefaultRepositories<Cur>();
+                //options.AddDefaultRepositories<Ins>();
+                options.AddRepository<Cur, EfCoreRepository<QuoteServerDbContext, Cur>>();
+                options.AddRepository<Ins, EfCoreRepository<QuoteServerDbContext, Ins>>();
             });
         }
     }

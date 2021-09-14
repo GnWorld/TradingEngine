@@ -23,8 +23,8 @@ namespace YT.Trading.EntityFrameworkCore
         typeof(AbpBackgroundJobsEntityFrameworkCoreModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpTenantManagementEntityFrameworkCoreModule),
-        typeof(AbpFeatureManagementEntityFrameworkCoreModule),
-        typeof(QuoteServerEntityFrameworkCoreModule)
+        typeof(AbpFeatureManagementEntityFrameworkCoreModule)
+        //typeof(QuoteServerEntityFrameworkCoreModule)
         )]
     public class TradingEntityFrameworkCoreModule : AbpModule
     {

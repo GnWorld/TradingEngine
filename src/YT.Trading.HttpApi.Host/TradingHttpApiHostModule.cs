@@ -28,6 +28,7 @@ using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.BackgroundWorkers;
 using QuoteServer.Brokers;
+using QuoteServer.MongoDB;
 
 namespace YT.Trading
 {
@@ -39,7 +40,8 @@ namespace YT.Trading
         typeof(TradingApplicationModule),
         typeof(TradingEntityFrameworkCoreDbMigrationsModule),
         typeof(AbpAspNetCoreSerilogModule),
-        typeof(AbpSwashbuckleModule)
+        typeof(AbpSwashbuckleModule),
+        typeof(QuoteServerMongoDbModule)
     )]
     public class TradingHttpApiHostModule : AbpModule
     {

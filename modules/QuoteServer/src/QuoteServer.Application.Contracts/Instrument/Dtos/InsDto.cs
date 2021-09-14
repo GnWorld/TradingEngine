@@ -5,7 +5,7 @@ using static QuoteServer.Enums.InstrumentEnums;
 using Volo.Abp.Application.Dtos;
 namespace QuoteServer.AppService.Dtos
 {
-    public class InsDto : FullAuditedEntityDto<int>
+    public class InsDto : FullAuditedEntityDto<Guid>
     {
         /// <summary>
         /// 排序
@@ -36,11 +36,11 @@ namespace QuoteServer.AppService.Dtos
         /// <summary>
         /// 多方币种
         /// </summary>
-        public int Long { get; set; }
+        public string LongCurCode { get; set; }
         /// <summary>
         /// 空方币种
         /// </summary>
-        public int Short { get; set; }
+        public string ShortCurCode { get; set; }
 
         /// <summary>
         /// 价格转换系数   如接入BTCUSD行情，设置0.2 即缩小5倍 

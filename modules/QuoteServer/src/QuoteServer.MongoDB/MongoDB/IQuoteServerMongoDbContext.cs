@@ -11,9 +11,8 @@ namespace QuoteServer.MongoDB
         /* Define mongo collections here. Example:
          * IMongoCollection<Question> Questions { get; }
          */
-        //IMongoCollection<Cur> Curs { get; set; }
-
-        //IMongoCollection<Ins> Ins { get; set; }
+        IMongoCollection<Cur> Curs { get; }
+        IMongoCollection<Ins> Ins { get; }
     }
 
 }

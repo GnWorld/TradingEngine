@@ -22,7 +22,6 @@ namespace QuoteServer.AppService
 
         Task<List<CurOutput>> GetCursAsync(string curCode = null);
 
-        Task<CurOutput> GetCurAsync(int id);
 
     }
 }

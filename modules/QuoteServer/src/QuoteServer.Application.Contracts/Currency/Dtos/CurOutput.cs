@@ -1,9 +1,10 @@
 ﻿using QuoteServer.Enums;
+using System;
 using Volo.Abp.Application.Dtos;
 
 namespace QuoteServer.AppService.Dtos
 {
-    public class CurOutput : EntityDto<int>
+    public class CurOutput : EntityDto<Guid>
     {
 
         /// <summary>

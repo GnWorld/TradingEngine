@@ -104,11 +104,11 @@ namespace QuoteServer.AppService
             }
             if (flushLong)
             {
-                await _curAppService.UpdateCurRateAsync(new UpdateCurRateInput() { LongCur = ins.Long, ShortCur = ins.Short, FlushCur = ins.Long, Rate = (ins.Ask + ins.Bid) / 2 });
+                await _curAppService.UpdateCurRateAsync(new UpdateCurRateInput() { LongCur = ins.LongCurCode, ShortCur = ins.ShortCurCode, FlushCur = ins.LongCurCode, Rate = (ins.Ask + ins.Bid) / 2 });
             }
             if (flushShort)
             {
-                await _curAppService.UpdateCurRateAsync(new UpdateCurRateInput() { LongCur = ins.Short, ShortCur = ins.Short, FlushCur = ins.Short, Rate = (ins.Ask + ins.Bid) / 2 });
+                await _curAppService.UpdateCurRateAsync(new UpdateCurRateInput() { LongCur = ins.ShortCurCode, ShortCur = ins.ShortCurCode, FlushCur = ins.ShortCurCode, Rate = (ins.Ask + ins.Bid) / 2 });
             }
         }
         #endregion

@@ -9,17 +9,17 @@ namespace QuoteServer.AppService.Dtos
         /// <summary>
         /// 多方币种
         /// </summary>
-        public int LongCur { get; set; }
+        public string LongCur { get; set; }
 
         /// <summary>
         /// 空方币种
         /// </summary>
-        public int ShortCur { get; set; }
+        public string ShortCur { get; set; }
         /// <summary>
         /// 刷新币种
         /// </summary>
 
-        public int FlushCur { get; set; }
+        public string FlushCur { get; set; }
         /// <summary>
         /// 币种Code
         /// </summary>

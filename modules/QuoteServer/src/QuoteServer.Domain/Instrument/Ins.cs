@@ -6,9 +6,10 @@ using static QuoteServer.Enums.InstrumentEnums;
 
 namespace QuoteServer.Domain.Entities
 {
-    public class Ins : FullAuditedEntity<int>
+    public class Ins : FullAuditedEntity<Guid>
     {
 
+        public Ins() { }
         /// <summary>
         /// 排序
         /// </summary>
@@ -38,11 +39,11 @@ namespace QuoteServer.Domain.Entities
         /// <summary>
         /// 多方币种
         /// </summary>
-        public int Long { get; set; }
+        public string LongCurCode { get; set; }
         /// <summary>
         /// 空方币种
         /// </summary>
-        public int Short { get; set; }
+        public string ShortCurCode { get; set; }
 
         /// <summary>
         /// 价格转换系数   如接入BTCUSD行情，设置0.2 即缩小5倍 

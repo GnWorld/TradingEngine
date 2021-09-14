@@ -9,8 +9,9 @@ namespace QuoteServer.Domain.Entities
     /// <summary>
     /// Currency  货币表
     /// </summary>
-    public class Cur : FullAuditedEntity<int>
+    public class Cur : FullAuditedEntity<Guid>
     {
+        public Cur() { }
         /// <summary>
         /// 币种编码（唯一）
         /// </summary>
