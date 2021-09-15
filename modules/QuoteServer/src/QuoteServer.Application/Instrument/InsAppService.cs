@@ -111,6 +111,15 @@ namespace QuoteServer.AppService
                 await _curAppService.UpdateCurRateAsync(new UpdateCurRateInput() { LongCur = ins.ShortCurCode, ShortCur = ins.ShortCurCode, FlushCur = ins.ShortCurCode, Rate = (ins.Ask + ins.Bid) / 2 });
             }
         }
+
+        public async Task UpdateInsAsync(InsDto input)
+        {
+            var ins = await _insRep.GetAsync(o => o.Code == input.Code);
+            ins.FlushCurType = input.FlushCurType;
+            await _insRep.UpdateAsync(ins);
+        }
+
+
         #endregion
 
     }

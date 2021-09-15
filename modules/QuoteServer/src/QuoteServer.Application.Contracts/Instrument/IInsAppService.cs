@@ -16,6 +16,7 @@ namespace QuoteServer.AppService
 
         Task FlushInsAsync(InsPriceDto insPriceDto);
 
+        Task UpdateInsAsync(InsDto input);
     }
 
 

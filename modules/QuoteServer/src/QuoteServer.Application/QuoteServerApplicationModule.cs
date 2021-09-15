@@ -42,8 +42,10 @@ namespace QuoteServer
                 });
             });
         }
+        // 应用初始化
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
+            
             context.AddBackgroundWorker<MT4Worker>();
         }
     }
