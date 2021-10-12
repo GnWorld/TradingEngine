@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <None Include="..\..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
+  <ProjectReference Include="..\..\modules\AccountServer\src\AccountServer.Application\AccountServer.Application.csproj" /><ProjectReference Include="..\..\modules\ProductOrderServer\src\ProductOrderServer.Application\ProductOrderServer.Application.csproj" /></ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.Application\QuoteServer.Application.csproj" />

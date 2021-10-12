@@ -17,7 +17,7 @@
     <PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="4.3.0" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="4.3.0" />
     <PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="4.3.0" />
-  </ItemGroup>
+  <ProjectReference Include="..\..\modules\AccountServer\src\AccountServer.Domain.Shared\AccountServer.Domain.Shared.csproj" /><ProjectReference Include="..\..\modules\ProductOrderServer\src\ProductOrderServer.Domain.Shared\ProductOrderServer.Domain.Shared.csproj" /></ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Localization\Trading\*.json" />

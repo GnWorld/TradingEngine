@@ -1,4 +1,4 @@
-﻿using YT.Trading.Localization;
+using YT.Trading.Localization;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.FeatureManagement;
@@ -13,6 +13,8 @@ using Volo.Abp.TenantManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 using QuoteServer;
+using AccountServer;
+using ProductOrderServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -26,6 +28,8 @@ namespace YT.Trading
         typeof(AbpTenantManagementDomainSharedModule),
         typeof(QuoteServerDomainSharedModule)
         )]
+    [DependsOn(typeof(AccountServerDomainSharedModule))]
+    [DependsOn(typeof(ProductOrderServerDomainSharedModule))]
     public class TradingDomainSharedModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

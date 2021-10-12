@@ -1,4 +1,4 @@
-﻿using Localization.Resources.AbpUi;
+using Localization.Resources.AbpUi;
 using YT.Trading.Localization;
 using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
@@ -8,6 +8,8 @@ using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.TenantManagement;
 using QuoteServer;
+using AccountServer;
+using ProductOrderServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -19,6 +21,8 @@ namespace YT.Trading
         typeof(AbpFeatureManagementHttpApiModule),
         typeof(QuoteServerHttpApiModule)
         )]
+    [DependsOn(typeof(AccountServerHttpApiModule))]
+    [DependsOn(typeof(ProductOrderServerHttpApiModule))]
     public class TradingHttpApiModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

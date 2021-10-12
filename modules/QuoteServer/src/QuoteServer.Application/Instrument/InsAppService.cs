@@ -71,7 +71,7 @@ namespace QuoteServer.AppService
         /// 品种价格更改
         /// </summary>
         /// <param name="insPriceDto"></param>
-        /// <returns></returns>
+        /// <returns></returns>        
         public async Task FlushInsAsync(InsPriceDto insPriceDto)
         {
             using var cw = new CodeWrapper("FlushIns");

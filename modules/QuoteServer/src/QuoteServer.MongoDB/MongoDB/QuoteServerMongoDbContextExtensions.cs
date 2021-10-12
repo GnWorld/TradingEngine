@@ -26,6 +26,7 @@ namespace QuoteServer.MongoDB
             {
                 //Configure table & schema name
                 b.CollectionName = QuoteServerDbProperties.DbTablePrefix + "_Instruments";
+                
             });
             optionsAction?.Invoke(options);
         }

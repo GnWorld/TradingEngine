@@ -10,7 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.HttpApi\QuoteServer.HttpApi.csproj" />
     <ProjectReference Include="..\YT.Trading.Application.Contracts\YT.Trading.Application.Contracts.csproj" />
-  </ItemGroup>
+  <ProjectReference Include="..\..\modules\AccountServer\src\AccountServer.HttpApi\AccountServer.HttpApi.csproj" /><ProjectReference Include="..\..\modules\ProductOrderServer\src\ProductOrderServer.HttpApi\ProductOrderServer.HttpApi.csproj" /></ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Account.HttpApi" Version="4.3.0" />

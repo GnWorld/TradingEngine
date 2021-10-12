@@ -8,6 +8,7 @@ using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Guids;
 using Volo.Abp.Uow;
 using YT.Core;
+using System;
 
 namespace QuoteServer.AppService
 {
@@ -32,20 +33,10 @@ namespace QuoteServer.AppService
         /// <returns></returns>
         public async Task<CurOutput> AddAsync(CreateCurInput input)
         {
-            try
-            {
-                var entity = ObjectMapper.Map<CreateCurInput, Cur>(input);
-                var cur = await _curRep.InsertAsync(entity, true);
-
-                var output = ObjectMapper.Map<Cur, CurOutput>(cur);
-                return output;
-            }
-            catch (System.Exception ex)
-            {
-
-                throw;
-            }
-
+            var entity = ObjectMapper.Map<CreateCurInput, Cur>(input);
+            var cur = await _curRep.InsertAsync(entity, true);
+            var output = ObjectMapper.Map<Cur, CurOutput>(cur);
+            return output;
         }
 
         /// <summary>
@@ -71,8 +62,8 @@ namespace QuoteServer.AppService
         public async Task<CurOutput> GetCurAsync(string curCode)
         {
             var cur = await _curRep.FirstOrDefaultAsync(o => o.CurCode == curCode);
-
-            return ObjectMapper.Map<Cur, CurOutput>(cur);
+            var output = ObjectMapper.Map<Cur, CurOutput>(cur);
+            return output;
         }
 
 

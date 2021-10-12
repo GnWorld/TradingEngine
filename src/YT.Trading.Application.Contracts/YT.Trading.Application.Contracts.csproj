@@ -10,7 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.Application.Contracts\QuoteServer.Application.Contracts.csproj" />
     <ProjectReference Include="..\YT.Trading.Domain.Shared\YT.Trading.Domain.Shared.csproj" />
-  </ItemGroup>
+  <ProjectReference Include="..\..\modules\AccountServer\src\AccountServer.Application.Contracts\AccountServer.Application.Contracts.csproj" /><ProjectReference Include="..\..\modules\ProductOrderServer\src\ProductOrderServer.Application.Contracts\ProductOrderServer.Application.Contracts.csproj" /></ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.ObjectExtending" Version="4.3.0" />

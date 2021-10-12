@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
@@ -10,6 +10,8 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using QuoteServer.EntityFrameworkCore;
+using AccountServer.EntityFrameworkCore;
+using ProductOrderServer.EntityFrameworkCore;
 
 namespace YT.Trading.EntityFrameworkCore
 {
@@ -47,6 +49,8 @@ namespace YT.Trading.EntityFrameworkCore
             /* Configure your own tables/entities inside the ConfigureTrading method */
 
             builder.ConfigureTrading();
+            builder.ConfigureAccountServer();
+            builder.ConfigureProductOrderServer();
         }
     }
 }

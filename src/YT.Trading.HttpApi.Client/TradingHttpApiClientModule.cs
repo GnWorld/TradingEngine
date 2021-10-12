@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -6,6 +6,8 @@ using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.TenantManagement;
 using QuoteServer;
+using AccountServer;
+using ProductOrderServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -17,6 +19,8 @@ namespace YT.Trading
         typeof(AbpFeatureManagementHttpApiClientModule),
         typeof(QuoteServerHttpApiClientModule)
     )]
+    [DependsOn(typeof(AccountServerHttpApiClientModule))]
+    [DependsOn(typeof(ProductOrderServerHttpApiClientModule))]
     public class TradingHttpApiClientModule : AbpModule
     {
         public const string RemoteServiceName = "Default";
