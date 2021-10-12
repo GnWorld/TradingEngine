@@ -10,7 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\YT.Trading.EntityFrameworkCore.DbMigrations\YT.Trading.EntityFrameworkCore.DbMigrations.csproj" />
     <ProjectReference Include="..\YT.Trading.TestBase\YT.Trading.TestBase.csproj" />
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="4.3.0" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="4.4.3" />
   </ItemGroup>
 
   <ItemGroup>
