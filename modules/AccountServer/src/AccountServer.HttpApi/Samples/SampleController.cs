@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp;
 
-namespace ProductOrderServer.Samples
+namespace AccountServer.Samples
 {
     [RemoteService]
-    [Route("api/ProductOrderServer/sample")]
-    public class SampleController : ProductOrderServerController, ISampleAppService
+    [Route("api/AccountServer/sample")]
+    public class SampleController : AccountServerController, ISampleAppService
     {
         private readonly ISampleAppService _sampleAppService;
 

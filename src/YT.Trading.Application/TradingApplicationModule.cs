@@ -8,6 +8,7 @@ using Volo.Abp.TenantManagement;
 // 自定义的模块
 using QuoteServer;
 using ProductOrderServer;
+using AccountServer;
 
 namespace YT.Trading
 {
@@ -22,6 +23,7 @@ namespace YT.Trading
         typeof(QuoteServerApplicationModule) // 行情服务模块
         )]
     [DependsOn(typeof(ProductOrderServerApplicationModule))]
+    [DependsOn(typeof(AccountServerApplicationModule))]
     public class TradingApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

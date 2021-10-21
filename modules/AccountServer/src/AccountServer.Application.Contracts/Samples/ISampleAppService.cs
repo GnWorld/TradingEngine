@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 
-namespace ProductOrderServer.Samples
+namespace AccountServer.Samples
 {
     public interface ISampleAppService : IApplicationService
     {

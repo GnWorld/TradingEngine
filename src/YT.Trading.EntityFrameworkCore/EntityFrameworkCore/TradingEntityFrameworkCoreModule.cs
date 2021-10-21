@@ -12,6 +12,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using QuoteServer.EntityFrameworkCore;
 using ProductOrderServer.EntityFrameworkCore;
+using AccountServer.EntityFrameworkCore;
 
 namespace YT.Trading.EntityFrameworkCore
 {
@@ -30,6 +31,7 @@ namespace YT.Trading.EntityFrameworkCore
         )]
 
     [DependsOn(typeof(ProductOrderServerEntityFrameworkCoreModule))]
+    [DependsOn(typeof(AccountServerEntityFrameworkCoreModule))]
     public class TradingEntityFrameworkCoreModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

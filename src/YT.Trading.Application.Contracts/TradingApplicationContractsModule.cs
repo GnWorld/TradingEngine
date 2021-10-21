@@ -7,6 +7,7 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.TenantManagement;
 using QuoteServer;
 using ProductOrderServer;
+using AccountServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -22,6 +23,7 @@ namespace YT.Trading
 
     )]
     [DependsOn(typeof(ProductOrderServerApplicationContractsModule))]
+    [DependsOn(typeof(AccountServerApplicationContractsModule))]
     public class TradingApplicationContractsModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

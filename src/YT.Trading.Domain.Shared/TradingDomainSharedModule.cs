@@ -14,6 +14,7 @@ using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 using QuoteServer;
 using ProductOrderServer;
+using AccountServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -29,6 +30,7 @@ namespace YT.Trading
         )]
 
     [DependsOn(typeof(ProductOrderServerDomainSharedModule))]
+    [DependsOn(typeof(AccountServerDomainSharedModule))]
     public class TradingDomainSharedModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

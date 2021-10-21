@@ -1,4 +1,4 @@
-﻿namespace ProductOrderServer.Samples
+﻿namespace AccountServer.Samples
 {
     public class SampleDto
     {

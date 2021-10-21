@@ -9,6 +9,7 @@ using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.TenantManagement;
 using QuoteServer;
 using ProductOrderServer;
+using AccountServer;
 namespace YT.Trading
 {
     [DependsOn(
@@ -23,6 +24,7 @@ namespace YT.Trading
     //�Զ���ģ��
     [DependsOn(typeof(QuoteServerHttpApiModule))]
     [DependsOn(typeof(ProductOrderServerHttpApiModule))]
+    [DependsOn(typeof(AccountServerHttpApiModule))]
     public class TradingHttpApiModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

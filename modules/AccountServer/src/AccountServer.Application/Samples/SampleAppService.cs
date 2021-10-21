@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 
-namespace ProductOrderServer.Samples
+namespace AccountServer.Samples
 {
-    public class SampleAppService : ProductOrderServerAppService, ISampleAppService
+    public class SampleAppService : AccountServerAppService, ISampleAppService
     {
         public Task<SampleDto> GetAsync()
         {

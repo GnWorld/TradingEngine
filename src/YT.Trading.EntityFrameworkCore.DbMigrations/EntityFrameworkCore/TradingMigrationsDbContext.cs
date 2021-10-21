@@ -11,6 +11,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using QuoteServer.EntityFrameworkCore;
 using ProductOrderServer.EntityFrameworkCore;
+using AccountServer.EntityFrameworkCore;
 
 
 namespace YT.Trading.EntityFrameworkCore
@@ -50,6 +51,7 @@ namespace YT.Trading.EntityFrameworkCore
 
             builder.ConfigureTrading();
             builder.ConfigureProductOrderServer();
+            builder.ConfigureAccountServer();
         }
     }
 }

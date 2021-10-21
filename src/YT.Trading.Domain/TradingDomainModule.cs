@@ -15,6 +15,7 @@ using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using QuoteServer;
 using ProductOrderServer;
+using AccountServer;
 
 namespace YT.Trading
 {
@@ -33,6 +34,7 @@ namespace YT.Trading
         typeof(QuoteServerDomainModule)
     )]
     [DependsOn(typeof(ProductOrderServerDomainModule))]
+    [DependsOn(typeof(AccountServerDomainModule))]
     public class TradingDomainModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
