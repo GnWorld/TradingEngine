@@ -9,8 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.HttpApi.Client\QuoteServer.HttpApi.Client.csproj" />
-    <ProjectReference Include="..\YT.Trading.Application.Contracts\YT.Trading.Application.Contracts.csproj" />
-  <ProjectReference Include="..\..\modules\AccountServer\src\AccountServer.HttpApi.Client\AccountServer.HttpApi.Client.csproj" /><ProjectReference Include="..\..\modules\ProductOrderServer\src\ProductOrderServer.HttpApi.Client\ProductOrderServer.HttpApi.Client.csproj" /></ItemGroup>
+    <ProjectReference Include="..\YT.Trading.Application.Contracts\YT.Trading.Application.Contracts.csproj" /><ProjectReference Include="..\..\modules\ProductOrderServer\src\ProductOrderServer.HttpApi.Client\ProductOrderServer.HttpApi.Client.csproj" /></ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Account.HttpApi.Client" Version="4.4.3" />

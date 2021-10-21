@@ -6,7 +6,6 @@ using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.TenantManagement;
 using QuoteServer;
-using AccountServer;
 using ProductOrderServer;
 namespace YT.Trading
 {
@@ -16,10 +15,12 @@ namespace YT.Trading
         typeof(AbpIdentityHttpApiClientModule),
         typeof(AbpPermissionManagementHttpApiClientModule),
         typeof(AbpTenantManagementHttpApiClientModule),
-        typeof(AbpFeatureManagementHttpApiClientModule),
-        typeof(QuoteServerHttpApiClientModule)
+        typeof(AbpFeatureManagementHttpApiClientModule)
+
     )]
-    [DependsOn(typeof(AccountServerHttpApiClientModule))]
+    //�Զ���ģ��
+    [DependsOn(typeof(QuoteServerHttpApiClientModule))]
+
     [DependsOn(typeof(ProductOrderServerHttpApiClientModule))]
     public class TradingHttpApiClientModule : AbpModule
     {

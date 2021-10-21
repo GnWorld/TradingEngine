@@ -40,9 +40,10 @@ namespace YT.Trading
         typeof(TradingApplicationModule),
         typeof(TradingEntityFrameworkCoreDbMigrationsModule),
         typeof(AbpAspNetCoreSerilogModule),
-        typeof(AbpSwashbuckleModule),
-        typeof(QuoteServerMongoDbModule)
+        typeof(AbpSwashbuckleModule)
+
     )]
+    [DependsOn(typeof(QuoteServerMongoDbModule))]
     public class TradingHttpApiHostModule : AbpModule
     {
         private const string DefaultCorsPolicyName = "Default";
@@ -120,6 +121,20 @@ namespace YT.Trading
                 },
                 options =>
                 {
+                    var xmlFile = $"{AppContext.BaseDirectory}{typeof(Startup).Assembly.GetName().Name}.xml";
+                    if (File.Exists(xmlFile))
+                        options.IncludeXmlComments(xmlFile, true);
+
+                    var xmlDocuments = 
+                        new string[] { 
+                            "QuoteServer.Application.xml","QuoteServer.Application.Contracts.xml"
+                            };
+                    foreach (var doc in xmlDocuments)
+                    {
+                        var dtoXmlFile = $"{AppContext.BaseDirectory}{doc}";
+                        if (File.Exists(dtoXmlFile))
+                            options.IncludeXmlComments(dtoXmlFile, true);
+                    }
                     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Trading API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
                 });
@@ -225,7 +240,7 @@ namespace YT.Trading
             app.UseAbpSerilogEnrichers();
             app.UseUnitOfWork();
             app.UseConfiguredEndpoints();
-            
+
         }
     }
 }

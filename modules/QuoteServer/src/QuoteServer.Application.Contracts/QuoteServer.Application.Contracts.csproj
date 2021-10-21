@@ -5,6 +5,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>QuoteServer</RootNamespace>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>..\..\..\..\src\YT.Trading.HttpApi.Host\QuoteServer.Application.Contracts.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

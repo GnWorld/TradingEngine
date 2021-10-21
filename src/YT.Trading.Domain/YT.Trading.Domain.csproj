@@ -9,8 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\modules\QuoteServer\src\QuoteServer.Domain\QuoteServer.Domain.csproj" />
-    <ProjectReference Include="..\YT.Trading.Domain.Shared\YT.Trading.Domain.Shared.csproj" />
-  <ProjectReference Include="..\..\modules\AccountServer\src\AccountServer.Domain\AccountServer.Domain.csproj" /><ProjectReference Include="..\..\modules\ProductOrderServer\src\ProductOrderServer.Domain\ProductOrderServer.Domain.csproj" /></ItemGroup>
+    <ProjectReference Include="..\YT.Trading.Domain.Shared\YT.Trading.Domain.Shared.csproj" /><ProjectReference Include="..\..\modules\ProductOrderServer\src\ProductOrderServer.Domain\ProductOrderServer.Domain.csproj" /></ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Emailing" Version="4.4.3" />

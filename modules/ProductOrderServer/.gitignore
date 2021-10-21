@@ -256,3 +256,4 @@ host/ProductOrderServer.IdentityServer/Logs/logs.txt
 host/ProductOrderServer.HttpApi.Host/Logs/logs.txt
 host/ProductOrderServer.Web.Host/Logs/logs.txt
 host/ProductOrderServer.Web.Unified/Logs/logs.txt
+host/ProductOrderServer.Blazor.Server.Host/Logs/logs.txt

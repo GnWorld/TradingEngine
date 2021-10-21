@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuoteServer.Application.Contracts</name>
+    </assembly>
+    <members>
+        <member name="P:QuoteServer.AppService.Dtos.CreateCurInput.CurCode">
+            <summary>
+            币种编码（唯一）
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CreateCurInput.CurEnName">
+            <summary>
+            币种英文名称(唯一)
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CreateCurInput.AnchorRate">
+            <summary>
+            币种汇率
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CreateCurInput.AnchoringCurCode">
+            <summary>
+            锚定币种Code（默认美元）
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CreateCurInput.AnchorRateFlush">
+            <summary>
+            汇率刷新模式
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CreateCurInput.DecimalCount">
+            <summary>
+            小数位数
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CreateCurInput.IsDisable">
+            <summary>
+            是否禁用
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CreateCurInput.IsShow">
+            <summary>
+            是否显示
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CreateCurInput.CurType">
+            <summary>
+            虚拟币类型,
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CurOutput.CurCode">
+            <summary>
+            币种编码（唯一）
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CurOutput.CurEnName">
+            <summary>
+            币种英文名称(唯一)
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CurOutput.AnchorRate">
+            <summary>
+            币种汇率
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CurOutput.AnchoringCurCode">
+            <summary>
+            锚定币种Code（默认美元）
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CurOutput.AnchorRateFlush">
+            <summary>
+            汇率刷新模式
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CurOutput.DecimalCount">
+            <summary>
+            小数位数
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CurOutput.IsDisable">
+            <summary>
+            是否禁用
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.CurOutput.CurType">
+            <summary>
+            虚拟币类型,
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurInput.CurCode">
+            <summary>
+            币种编码（唯一）
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurInput.CurEnName">
+            <summary>
+            币种英文名称(唯一)
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurInput.AnchorRate">
+            <summary>
+            币种汇率
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurInput.AnchoringCurCode">
+            <summary>
+            锚定币种Code（默认美元）
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurInput.AnchorRateFlush">
+            <summary>
+            汇率刷新模式
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurInput.DecimalCount">
+            <summary>
+            小数位数
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurInput.IsDisable">
+            <summary>
+            是否禁用
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurInput.CurType">
+            <summary>
+            虚拟币类型,
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurRateInput.LongCur">
+            <summary>
+            多方币种
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurRateInput.ShortCur">
+            <summary>
+            空方币种
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurRateInput.FlushCur">
+            <summary>
+            刷新币种
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurRateInput.CurCode">
+            <summary>
+            币种Code
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.UpdateCurRateInput.Rate">
+            <summary>
+            汇率
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Desc">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.IsShow">
+            <summary>
+            是否显示 true-显示 false-隐藏
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.EnableQuote">
+            <summary>
+            是否接入行情
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Code">
+            <summary>
+            交易对编码
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.AssetName">
+            <summary>
+            交易对名称
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.LongCurCode">
+            <summary>
+            多方币种
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.ShortCurCode">
+            <summary>
+            空方币种
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Convertor">
+            <summary>
+            价格转换系数   如接入BTCUSD行情，设置0.2 即缩小5倍 
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.MinLot">
+            <summary>
+            最小交易单位
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.MinChange">
+            <summary>
+            最小价格波动
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Eta">
+            <summary>
+            合约规格（每手所对应的资产 以a或long计价，例如 =10000(天然气10000百万英国热量), =1000(原油1000桶), =50(恒生指数50港币X指数）
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:QuoteServer.AppService.Dtos.InsDto.Psi" -->
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Path">
+            <summary>
+            交易区
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Ask">
+            <summary>
+            买价
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Bid">
+            <summary>
+            卖价
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.FixedSpread">
+            <summary>
+            固定点差
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.PercentageSpread">
+            <summary>
+            百分比点差
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.ExtBiz">
+            <summary>
+            外部品种行情来源商户
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.ExtBizCode">
+            <summary>
+            外部品种行情来源商户Code
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.InternalInstruments">
+            <summary>
+            内部品种（外部品种价格变化时触发内部品种价格变动，多个中间用竖线隔开）
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.FlushCurType">
+            <summary>
+            刷新币种模式
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.MarginCalc">
+            <summary>
+            保证金模式
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.MarginRateInit">
+            <summary>
+            初始保证金率，开仓时计算，小于初始保证金无法开仓
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.MarginRateMntn">
+            <summary>
+            维持保证金率 ，爆仓
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.DecimalCount">
+            <summary>
+            小数点位数
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Formatter">
+            <summary>
+            小数点位数格式化，根据DecimalCount变化，如 DecimalCount=2 则Formatter="0.00",DecimalCount=3则Formatter="0.000"
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.Status">
+            <summary>
+            品种状态
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsDto.TradeMode">
+            <summary>
+            交易模式
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsPriceDto.Ask">
+            <summary>
+            买价
+            </summary>
+        </member>
+        <member name="P:QuoteServer.AppService.Dtos.InsPriceDto.Bid">
+            <summary>
+            卖价
+            </summary>
+        </member>
+        <member name="M:QuoteServer.AppService.ICurrencyAppService.AddAsync(QuoteServer.AppService.Dtos.CreateCurInput)">
+            <summary>
+            添加币种
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.AppService.ICurrencyAppService.UpdateCurAsync(QuoteServer.AppService.Dtos.UpdateCurInput)">
+            <summary>
+            更新币种
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.AppService.ICurrencyAppService.UpdateCurRateAsync(QuoteServer.AppService.Dtos.UpdateCurRateInput)">
+            <summary>
+            更新币种汇率
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.AppService.ICurrencyAppService.GetCurAsync(System.String)">
+            <summary>
+            获取币种
+            </summary>
+            <param name="curCode"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:QuoteServer.AppService.ICurrencyAppService.GetCursAsync(System.String)" -->
+        <member name="M:QuoteServer.IBrokerAppService.CommitPriceAsync(System.Collections.Generic.List{QuoteServer.AppService.Dtos.InsPriceDto})">
+            <summary>
+            提交价格
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.IBrokerAppService.CommitHistoryAsync(QuoteServer.AppService.Dtos.InsHistoryDto)">
+            <summary>
+            提交历史
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:QuoteServer.MT4SourceModel.MT4Name">
+            <summary>
+            MT4名称
+            </summary>
+        </member>
+        <member name="P:QuoteServer.MT4SourceModel.MT4Key">
+            <summary>
+            路径Key值
+            </summary>
+        </member>
+        <member name="P:QuoteServer.MT4SourceModel.IsEnable">
+            <summary>
+            是否接入
+            </summary>
+        </member>
+    </members>
+</doc>

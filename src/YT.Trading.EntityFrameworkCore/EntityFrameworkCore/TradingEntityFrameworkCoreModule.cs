@@ -11,8 +11,8 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using QuoteServer.EntityFrameworkCore;
-using AccountServer.EntityFrameworkCore;
 using ProductOrderServer.EntityFrameworkCore;
+
 namespace YT.Trading.EntityFrameworkCore
 {
     [DependsOn(
@@ -28,7 +28,7 @@ namespace YT.Trading.EntityFrameworkCore
         typeof(AbpFeatureManagementEntityFrameworkCoreModule)
         //typeof(QuoteServerEntityFrameworkCoreModule)
         )]
-    [DependsOn(typeof(AccountServerEntityFrameworkCoreModule))]
+
     [DependsOn(typeof(ProductOrderServerEntityFrameworkCoreModule))]
     public class TradingEntityFrameworkCoreModule : AbpModule
     {

@@ -13,7 +13,6 @@ using Volo.Abp.TenantManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 using QuoteServer;
-using AccountServer;
 using ProductOrderServer;
 namespace YT.Trading
 {
@@ -28,7 +27,7 @@ namespace YT.Trading
         typeof(AbpTenantManagementDomainSharedModule),
         typeof(QuoteServerDomainSharedModule)
         )]
-    [DependsOn(typeof(AccountServerDomainSharedModule))]
+
     [DependsOn(typeof(ProductOrderServerDomainSharedModule))]
     public class TradingDomainSharedModule : AbpModule
     {

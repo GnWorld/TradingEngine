@@ -7,8 +7,8 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.TenantManagement;
 // 自定义的模块
 using QuoteServer;
-using AccountServer;
 using ProductOrderServer;
+
 namespace YT.Trading
 {
     [DependsOn(
@@ -21,7 +21,6 @@ namespace YT.Trading
         typeof(AbpFeatureManagementApplicationModule),
         typeof(QuoteServerApplicationModule) // 行情服务模块
         )]
-    [DependsOn(typeof(AccountServerApplicationModule))]
     [DependsOn(typeof(ProductOrderServerApplicationModule))]
     public class TradingApplicationModule : AbpModule
     {

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuoteServer.Application</name>
+    </assembly>
+    <members>
+        <member name="M:QuoteServer.Brokers.BrokerAppService.CommitPriceAsync(System.Collections.Generic.List{QuoteServer.AppService.Dtos.InsPriceDto})">
+            <summary>
+            提交品种价格
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.Brokers.BrokerAppService.CommitHistoryAsync(QuoteServer.AppService.Dtos.InsHistoryDto)">
+            <summary>
+            提交品种行情历史
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:QuoteServer.Brokers.MT4Worker">
+            <summary>
+            MT4行情源
+            </summary>
+        </member>
+        <member name="M:QuoteServer.AppService.CurrencyAppService.AddAsync(QuoteServer.AppService.Dtos.CreateCurInput)">
+            <summary>
+            添加币种
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.AppService.CurrencyAppService.GetCursAsync(System.String)">
+            <summary>
+            获取币种列表
+            </summary>
+            <param name="curCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.AppService.CurrencyAppService.GetCurAsync(System.String)">
+            <summary>
+            获取单个币种
+            </summary>
+            <param name="curCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.AppService.CurrencyAppService.UpdateCurAsync(QuoteServer.AppService.Dtos.UpdateCurInput)">
+            <summary>
+            更新币种
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.AppService.CurrencyAppService.UpdateCurRateAsync(QuoteServer.AppService.Dtos.UpdateCurRateInput)">
+            <summary>
+            更新币种汇率
+            </summary>
+            <param name="curCode"></param>
+            <param name="rate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.AppService.InsAppService.UpdateInsPriceAsync(System.Collections.Generic.List{QuoteServer.AppService.Dtos.InsPriceDto})">
+            <summary>
+            更新价格
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuoteServer.AppService.InsAppService.FlushInsAsync(QuoteServer.AppService.Dtos.InsPriceDto)">
+            <summary>
+            品种价格更改
+            </summary>
+            <param name="insPriceDto"></param>
+            <returns></returns>        
+        </member>
+    </members>
+</doc>
