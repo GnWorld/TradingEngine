@@ -23,11 +23,16 @@ namespace AccountServer.Account
         /// </summary>
         public int OwnerType { get; set; }
 
+        /// <summary>
+        /// 区块链钱包Id(仅普通钱包)
+        /// </summary>
+        public Guid BlockChainWalletId { get; set; }
 
         /// <summary>
         /// 余额
         /// </summary>
         public decimal Balance { get; set; }
+
 
         /// <summary>
         /// 冻结
@@ -35,9 +40,9 @@ namespace AccountServer.Account
         public decimal Frozen { get; set; }
 
         /// <summary>
-        /// 币种Code
+        /// 币种Code  CurrencyCode
         /// </summary>
-        public string CoinCode { get; set; }
+        public string CurCode { get; set; }
         /// <summary>
         /// 账户类型
         /// </summary>
@@ -54,7 +59,10 @@ namespace AccountServer.Account
         public DateTime CreateTime { get; set; }
 
 
-        public int AcctStatus { get; set; }
+        /// <summary>
+        /// 账户状态
+        /// </summary>
+        public AcctStatusEnum AcctStatus { get; set; }
 
         /// <summary>
         /// 支付密码(MD5加密)
@@ -65,5 +73,7 @@ namespace AccountServer.Account
         /// 只读密码(加密)
         /// </summary>
         public string ReadOnlyPwd { get; set; }
+
+
     }
 }

@@ -152,7 +152,7 @@ namespace YT.Trading
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage(); 
             }
 
             app.UseAbpRequestLocalization();
